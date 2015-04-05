@@ -1,6 +1,7 @@
 (provide 'init-evil)
-
+(require 'evil)
 (evil-mode 1)
+
 (setq evil-emacs-state-cursor '("red" box))
 (setq evil-normal-state-cursor '("green" box))
 (setq evil-visual-state-cursor '("orange" box))
