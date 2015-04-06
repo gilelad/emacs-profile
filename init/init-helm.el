@@ -1,6 +1,7 @@
 (provide 'init-helm)
 
 (require 'helm-config)
+(require 'helm-company)
 (require 'helm-misc)
 (require 'helm-gtags)
 ;; Enable helm-gtags-mode
@@ -34,6 +35,8 @@
 (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
+(define-key evil-normal-state-map " " nil)
+(define-key evil-normal-state-map "  " 'helm-mini)
 (when (executable-find "curl")
   (setq helm-google-suggest-use-curl-p t))
 (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window

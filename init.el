@@ -8,7 +8,7 @@
 (require 'init-ace-jump-mode)
 (require 'init-rainbow-delimiters)
 (require 'init-company)
-
+(require 'init-sr-speedbar)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -16,6 +16,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode 1)
+ '(company-c-headers-path-system (quote ("/usr/include/" "/usr/local/include/" "/usr/include/c++/4.9/")))
  '(custom-enabled-themes (quote (gruber-darker)))
  '(custom-safe-themes (quote ("472af27930b4c25b13971cc34ee1610c562366d63ad570d4f7cd0055c182c7e9" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(default-frame-alist (quote ((fullscreen . maximized))))
@@ -28,6 +29,8 @@
  '(show-paren-mode t)
  '(sml/theme (quote dark))
  '(speedbar-default-position (quote left))
+ '(sr-speedbar-right-side nil)
+ '(sr-speedbar-skip-other-window-p t)
  '(tab-width 2)
  '(tool-bar-mode nil))
 (custom-set-faces
