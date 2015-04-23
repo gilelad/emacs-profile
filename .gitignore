@@ -1,5 +1,7 @@
 auto-save-list/
 semanticdb/
 elpa/archives/
+eshell/
+session.*
 *.elc
 \#*

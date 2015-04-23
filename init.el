@@ -1,6 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d/init")
 (require 'init-packages)
-(require 'init-evil)
 (require 'init-elpy)
 (require 'init-misc)
 (require 'init-helm)
@@ -8,7 +7,6 @@
 (require 'init-ace-jump-mode)
 (require 'init-rainbow-delimiters)
 (require 'init-company)
-(require 'init-sr-speedbar)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -21,16 +19,18 @@
  '(custom-safe-themes (quote ("472af27930b4c25b13971cc34ee1610c562366d63ad570d4f7cd0055c182c7e9" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(default-frame-alist (quote ((fullscreen . maximized))))
  '(elpy-interactive-python-command "ipython3")
+ '(elpy-rpc-python-command "python3")
  '(global-linum-mode t)
  '(inhibit-startup-screen t)
  '(line-number-mode t)
  '(make-backup-files nil)
  '(menu-bar-mode nil)
+ '(projectile-completion-system (quote helm))
  '(show-paren-mode t)
  '(sml/theme (quote dark))
+ '(smooth-scroll-margin 3)
+ '(smooth-scroll-strict-margins t)
  '(speedbar-default-position (quote left))
- '(sr-speedbar-right-side nil)
- '(sr-speedbar-skip-other-window-p t)
  '(tab-width 2)
  '(tool-bar-mode nil))
 (custom-set-faces
