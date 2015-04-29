@@ -4,4 +4,5 @@ elpa/archives/
 eshell/
 session.*
 *.elc
+**/*.pyc
 \#*
