@@ -8,7 +8,7 @@
 (require 'init-rainbow-delimiters)
 (require 'init-company)
 (require 'init-smart-tab-mode)
-require 'init-helm-projectile)
+(require 'init-helm-projectile)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

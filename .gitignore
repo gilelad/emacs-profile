@@ -9,4 +9,5 @@ elpa/*-readme.txt
 elpa/gnupg/
 **/*.eld
 projectile.cache
+recentf
 \#*
