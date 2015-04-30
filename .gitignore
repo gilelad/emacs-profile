@@ -5,4 +5,6 @@ eshell/
 session.*
 *.elc
 **/*.pyc
+elpa/*-readme.txt
+elpa/gnupg/
 \#*
