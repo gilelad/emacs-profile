@@ -11,5 +11,19 @@
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 (define-key evil-insert-state-map (kbd "C-[") 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "C-[") 'evil-normal-state)
+(define-key evil-replace-state-map (kbd "C-[") 'evil-normal-state)
+(define-key evil-motion-state-map (kbd "C-[") 'evil-normal-state)
+(define-key evil-operator-state-map (kbd "C-[") 'evil-normal-state)
+(define-key evil-emacs-state-map (kbd "C-[") 'evil-normal-state)
+
+(define-key evil-insert-state-map (kbd "C-S-h") 'evil-backward-char)
+(define-key evil-insert-state-map (kbd "C-S-j") 'evil-next-visual-line)
+(define-key evil-insert-state-map (kbd "C-S-k") 'evil-previous-visual-line)
+(define-key evil-insert-state-map (kbd "C-S-l") 'evil-forward-char)
+(define-key evil-insert-state-map (kbd "C-S-a") 'evil-first-non-blank)
+(define-key evil-insert-state-map (kbd "C-S-e") 'evil-append-line)
+(define-key evil-insert-state-map (kbd "C-S-b") 'evil-backward-word-begin)
+(define-key evil-insert-state-map (kbd "C-S-w") 'evil-forward-word-begin)
+
 
 (global-set-key (kbd "<f5>") 'evil-local-mode)
