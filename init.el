@@ -9,6 +9,7 @@
 (require 'init-company)
 (require 'init-smart-tab-mode)
 (require 'init-helm-projectile)
+(require 'init-js2-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
