@@ -3,11 +3,13 @@ semanticdb/
 elpa/archives/
 eshell/
 session.*
-*.elc
+**/*.elc
 **/*.pyc
 elpa/*-readme.txt
 elpa/gnupg/
 **/*.eld
 projectile.cache
 recentf
-\#*
+**/\#*
+**/.\#*
+**/*~

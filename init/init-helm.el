@@ -12,14 +12,14 @@
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
 
 (setq helm-quick-update t
-			helm-bookmark-show-location t
-			helm-buffers-fuzzy-matching t
-			helm-gtags-ignore-case t
-			helm-gtags-auto-update t
-			helm-gtags-use-input-at-cursor t
-			helm-gtags-pulse-at-cursor t
-			helm-gtags-prefix-key "\C-cg"
-			helm-gtags-suggested-key-mapping t)
+      helm-bookmark-show-location t
+      helm-buffers-fuzzy-matching t
+      helm-gtags-ignore-case t
+      helm-gtags-auto-update t
+      helm-gtags-use-input-at-cursor t
+      helm-gtags-pulse-at-cursor t
+      helm-gtags-prefix-key "\C-cg"
+      helm-gtags-suggested-key-mapping t)
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
@@ -30,6 +30,8 @@
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
 (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
+(define-key helm-gtags-mode-map (kbd "C-c g r") 'helm-gtags-find-rtag)
+(define-key helm-gtags-mode-map (kbd "C-c g s") 'helm-gtags-find-symbol)
 (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
 (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
 (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
@@ -49,3 +51,4 @@
 (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x b") 'helm-mini)

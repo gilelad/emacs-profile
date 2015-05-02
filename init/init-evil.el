@@ -9,6 +9,7 @@
 (setq evil-operator-state-cursor '("red" hollow))
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+(define-key evil-normal-state-map (kbd "M-.") nil)  ;don't override "find-tag"
 
 (define-key evil-emacs-state-map (kbd "<escape>") 'evil-normal-state)
 
