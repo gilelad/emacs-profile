@@ -11,7 +11,6 @@
 (require 'init-helm-projectile)
 (require 'init-js2-mode)
 (require 'init-function-args)
-(require 'init-sml)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -65,4 +64,5 @@
  '(rainbow-delimiters-depth-8-face ((t (:foreground "slate blue"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "magenta2")))))
 
+(require 'init-sml)
 (require 'init-misc)
