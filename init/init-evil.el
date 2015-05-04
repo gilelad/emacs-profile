@@ -19,3 +19,11 @@
 (global-set-key (kbd "<f5>") 'evil-local-mode)
 
 (setq evil-move-cursor-back nil)
+
+(require 'create-buffer-hook)
+(defun auto-evil-local ()
+  (if (and (not (string-match "^\\*" (buffer-name)))
+           (not (string-match "^ " (buffer-name))))
+      (evil-local-mode 1)
+    nil))
+(add-hook 'create-buffer-mode-hook 'auto-evil-local)
