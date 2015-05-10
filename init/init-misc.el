@@ -32,3 +32,8 @@
  gdb-many-windows t ;; use gdb-many-windows by default
  gdb-show-main t ;; Non-nil means display source file containing the main routine at startup
  )
+
+
+;----- THEMES -----
+(load-theme 'solarized-dark)
+(sml/apply-theme 'dark)

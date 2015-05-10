@@ -19,6 +19,7 @@
       helm-gtags-use-input-at-cursor t
       helm-gtags-pulse-at-cursor t
       helm-gtags-prefix-key "\C-cg"
+      helm-gtags-fuzzy-match t
       helm-gtags-suggested-key-mapping t)
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
