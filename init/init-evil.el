@@ -20,7 +20,7 @@
 
 (setq evil-move-cursor-back nil)
 
-(require 'create-buffer-hook)
+(require 'utils)
 (defun auto-evil-local ()
   (if (and (not (string-match "^\\*" (buffer-name)))
            (not (string-match "^ " (buffer-name))))

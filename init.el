@@ -4,12 +4,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode 1)
- '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
    (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
+    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(default-frame-alist (quote ((fullscreen . maximized))))
- '(frame-brackground-mode (quote dark))
+ '(frame-background-mode (quote dark))
  '(global-linum-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
@@ -27,7 +26,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#181818" :foreground "#e4e4ef" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "unknown" :family "Inconsolata"))))
+ '(default ((t (:inherit nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 121 :width normal :foundry "unknown" :family "anonymous pro"))))
  '(linum ((t (:height 0.75 :width normal))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "HotPink1"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "sandy brown"))))
@@ -39,6 +38,7 @@
  '(rainbow-delimiters-depth-9-face ((t (:foreground "magenta2")))))
 
 (add-to-list 'load-path "~/.emacs.d/init")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 (require 'init-packages)
 (require 'init-elpy)
 (require 'init-helm)
@@ -54,3 +54,4 @@
 (require 'init-company-c-headers)
 (require 'init-sml)
 (require 'init-misc)
+(require 'utils)

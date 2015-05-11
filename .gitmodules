@@ -4,3 +4,6 @@
 [submodule "modules/company-tern"]
 	path = modules/company-tern
 	url = https://github.com/proofit404/company-tern
+[submodule "modules/emacs-color-theme-solarized"]
+	path = modules/emacs-color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git
