@@ -37,3 +37,10 @@
 ;----- THEMES -----
 (load-theme 'solarized-dark)
 (sml/apply-theme 'dark)
+
+
+;---- TERN ----
+(add-to-list 'load-path "~/.emacs.d/modules/tern/emacs")
+(add-to-list 'load-path "~/.emacs.d/modules/company-tern")
+(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+(add-to-list 'company-backends 'company-tern)

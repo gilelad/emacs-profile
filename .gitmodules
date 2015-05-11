@@ -1,0 +1,6 @@
+[submodule "modules/tern"]
+	path = modules/tern
+	url = https://github.com/marijnh/tern.git
+[submodule "modules/company-tern"]
+	path = modules/company-tern
+	url = https://github.com/proofit404/company-tern
