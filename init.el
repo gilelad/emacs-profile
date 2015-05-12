@@ -54,4 +54,5 @@
 (require 'init-company-c-headers)
 (require 'init-sml)
 (require 'init-misc)
+(require 'init-autopair)
 (require 'utils)
