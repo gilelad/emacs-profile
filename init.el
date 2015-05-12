@@ -35,7 +35,8 @@
  '(rainbow-delimiters-depth-6-face ((t (:foreground "light sky blue"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "dodger blue"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "slate blue"))))
- '(rainbow-delimiters-depth-9-face ((t (:foreground "magenta2")))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "magenta2"))))
+ '(show-paren-match ((t (:inverse-video t :weight bold)))))
 
 (add-to-list 'load-path "~/.emacs.d/init")
 (add-to-list 'load-path "~/.emacs.d/lisp")
