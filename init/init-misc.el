@@ -1,6 +1,8 @@
 (provide 'init-misc)
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "S-SPC") 'forward-char)
+(global-set-key (kbd "M-S-SPC") 'backward-char)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; SEMANTIC ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cc-mode)

@@ -19,6 +19,7 @@
  '(smooth-scroll-margin 3)
  '(smooth-scroll-strict-margins t)
  '(speedbar-default-position (quote left))
+ '(speedbar-show-unknown-files t)
  '(tab-width 4)
  '(tool-bar-mode nil))
 (custom-set-faces
