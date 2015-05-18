@@ -15,6 +15,7 @@
  '(line-number-mode t)
  '(make-backup-files nil)
  '(menu-bar-mode nil)
+ '(python-shell-interpreter-args "-i --colors=NoColor")
  '(show-paren-mode t)
  '(smooth-scroll-margin 3)
  '(smooth-scroll-strict-margins t)
