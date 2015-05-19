@@ -10,11 +10,17 @@
 (require 'cc-mode)
 (require 'semantic)
 
-(global-semanticdb-minor-mode 1)
-(global-semantic-idle-scheduler-mode 1)
+(set-default 'semantic-case-fold t)
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
+(add-to-list 'semantic-default-submodes 'global-semantic-idle-scheduler-mode)
+(add-to-list 'semantic-default-submodes 'global-semantic-minor-mode)
 (semantic-mode 1)
 
-(semantic-add-system-include "/usr/local/boost" 'c++-mode)
+(when (file-accessible-directory-p "/usr/local/boost")
+  (semantic-add-system-include "/usr/local/boost" 'c++-mode))
+
+(require 'semantic/bovine/gcc)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; WINMOVE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun ignore-error-wrapper (fn) ; from http://www.emacswiki.org/emacs/WindMove
@@ -45,9 +51,10 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; TERN ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "~/.emacs.d/modules/tern/emacs")
-(add-to-list 'load-path "~/.emacs.d/modules/company-tern")
-(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
-(add-to-list 'company-backends 'company-tern)
+(when (file-exists-p "~/.emacs.d/modules/tern/tern.el")
+  ((add-to-list 'load-path "~/.emacs.d/modules/tern/emacs")
+   (add-to-list 'load-path "~/.emacs.d/modules/company-tern")
+   (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+   (add-to-list 'company-backends 'company-tern)))
 
 
