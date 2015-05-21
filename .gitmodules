@@ -7,3 +7,6 @@
 [submodule "modules/emacs-color-theme-solarized"]
 	path = modules/emacs-color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized.git
+[submodule "modules/ecb"]
+	path = modules/ecb
+	url = https://github.com/alexott/ecb.git

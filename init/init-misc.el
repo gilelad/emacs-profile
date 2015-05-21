@@ -9,6 +9,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; SEMANTIC ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cc-mode)
 (require 'semantic)
+(require 'semantic/db)
 
 (set-default 'semantic-case-fold t)
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
@@ -21,6 +22,9 @@
   (semantic-add-system-include "/usr/local/boost" 'c++-mode))
 
 (require 'semantic/bovine/gcc)
+
+(semanticdb-enable-gnu-global-databases 'c-mode t)
+(semanticdb-enable-gnu-global-databases 'c++-mode t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; WINMOVE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun ignore-error-wrapper (fn) ; from http://www.emacswiki.org/emacs/WindMove
@@ -52,9 +56,16 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; TERN ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when (file-exists-p "~/.emacs.d/modules/tern/tern.el")
-  ((add-to-list 'load-path "~/.emacs.d/modules/tern/emacs")
-   (add-to-list 'load-path "~/.emacs.d/modules/company-tern")
-   (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
-   (add-to-list 'company-backends 'company-tern)))
+  (add-to-list 'load-path "~/.emacs.d/modules/tern/emacs")
+  (add-to-list 'load-path "~/.emacs.d/modules/company-tern")
+  (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+  (add-to-list 'company-backends 'company-tern))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; ECB ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (file-exists-p "~/.emacs.d/modules/ecb/ecb.el")
+  (add-to-list 'load-path "~/.emacs.d/modules/ecb")
+  (require 'ecb))
 
 

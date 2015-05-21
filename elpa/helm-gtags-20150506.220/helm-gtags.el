@@ -4,7 +4,7 @@
 
 ;; Author: Syohei YOSHIDA <syohex@gmail.com>
 ;; URL: https://github.com/syohex/emacs-helm-gtags
-;; Package-Version: 20150418.723
+;; Package-Version: 20150506.220
 ;; Version: 1.4.7
 ;; Package-Requires: ((helm "1.5.6") (cl-lib "0.5"))
 
@@ -296,15 +296,17 @@ Always update if value of this variable is nil."
 
 (defun helm-gtags--tag-directory ()
   (with-temp-buffer
-    (unless (zerop (process-file "global" nil t nil "-p"))
-      (error "GTAGS not found"))
-    (goto-char (point-min))
-    (when (looking-at "^\\([^\r\n]+\\)")
-      (let ((tag-path (match-string-no-properties 1)))
-        (file-name-as-directory
-         (if (eq system-type 'cygwin)
-             (cygwin-convert-file-name-from-windows tag-path)
-           tag-path))))))
+    (helm-aif (getenv "GTAGSROOT")
+        it
+      (unless (zerop (process-file "global" nil t nil "-p"))
+        (error "GTAGS not found"))
+      (goto-char (point-min))
+      (when (looking-at "^\\([^\r\n]+\\)")
+        (let ((tag-path (match-string-no-properties 1)))
+          (file-name-as-directory
+           (if (eq system-type 'cygwin)
+               (cygwin-convert-file-name-from-windows tag-path)
+             tag-path)))))))
 
 (defun helm-gtags--find-tag-directory ()
   (setq helm-gtags--real-tag-location nil)
@@ -946,7 +948,8 @@ Always update if value of this variable is nil."
       (set-process-sentinel proc (helm-gtags--make-gtags-sentinel 'create)))))
 
 (defun helm-gtags--find-tag-simple ()
-  (or (locate-dominating-file default-directory "GTAGS")
+  (or (getenv "GTAGSROOT")
+      (locate-dominating-file default-directory "GTAGS")
       (if (not (yes-or-no-p "File GTAGS not found. Run 'gtags'? "))
           (user-error "Abort")
         (let* ((tagroot (read-directory-name "Root Directory: "))
