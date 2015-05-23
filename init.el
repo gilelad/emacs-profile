@@ -8,13 +8,14 @@
    (quote
     ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(default-frame-alist (quote ((fullscreen . maximized))))
+ '(ecb-options-version "2.40")
  '(frame-background-mode (quote dark))
  '(global-linum-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(line-number-mode t)
  '(make-backup-files nil)
- '(menu-bar-mode nil)
+ '(menu-bar-mode t)
  '(python-shell-interpreter-args "-i --colors=NoColor")
  '(show-paren-mode t)
  '(smooth-scroll-margin 3)
@@ -29,6 +30,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 121 :width normal :foundry "unknown" :family "anonymous pro"))))
+ '(ecb-default-highlight-face ((t (:background "gray16"))))
  '(linum ((t (:height 0.75 :width normal))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "HotPink1"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "sandy brown"))))
@@ -58,4 +60,5 @@
 (require 'init-sml)
 (require 'init-misc)
 (require 'init-autopair)
+(require 'init-ecb)
 (require 'utils)

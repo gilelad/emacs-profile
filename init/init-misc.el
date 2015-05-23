@@ -62,10 +62,3 @@
   (add-to-list 'company-backends 'company-tern))
 
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;; ECB ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(when (file-exists-p "~/.emacs.d/modules/ecb/ecb.el")
-  (add-to-list 'load-path "~/.emacs.d/modules/ecb")
-  (require 'ecb))
-
-
