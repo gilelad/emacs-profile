@@ -21,10 +21,9 @@
 (when (file-accessible-directory-p "/usr/local/boost")
   (semantic-add-system-include "/usr/local/boost" 'c++-mode))
 
-(require 'semantic/bovine/gcc)
-
 (semanticdb-enable-gnu-global-databases 'c-mode t)
 (semanticdb-enable-gnu-global-databases 'c++-mode t)
+(setq semantic-c-obey-conditional-section-parsing-flag nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; WINMOVE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun ignore-error-wrapper (fn) ; from http://www.emacswiki.org/emacs/WindMove
