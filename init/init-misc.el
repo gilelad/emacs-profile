@@ -1,12 +1,14 @@
-(provide 'init-misc)
-
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "S-SPC") 'forward-char)
 (global-set-key (kbd "M-S-SPC") 'backward-char)
 
 (add-hook 'python-mode-hook (lambda () (setq tab-width 4)))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;; SEMANTIC ;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;; THEMES ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/emacs-color-theme-solarized")
+(load-theme 'solarized t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; CEDET ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cc-mode)
 (require 'semantic)
 (require 'semantic/db)
@@ -16,6 +18,7 @@
 (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-idle-scheduler-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-minor-mode)
+(add-to-list 'semantic-default-submodes 'global-semantic-decoration-mode)
 (semantic-mode 1)
 
 (when (file-accessible-directory-p "/usr/local/boost")
@@ -46,12 +49,8 @@
  gdb-show-main t ;; Non-nil means display source file containing the main routine at startup
  )
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;; THEMES ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/emacs-color-theme-solarized")
-(load-theme 'solarized t)
-(sml/apply-theme 'dark)
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;; HIDESHOW ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'c-mode-common-hook 'hs-minor-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; TERN ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when (file-exists-p "~/.emacs.d/modules/tern/tern.el")
@@ -61,3 +60,34 @@
   (add-to-list 'company-backends 'company-tern))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;; WS-BUTLER ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'ws-butler)
+(ws-butler-global-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; AUTOPAIR ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'autopair)
+(autopair-global-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; ELPY ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(elpy-enable)
+(elpy-use-ipython "ipython3")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; JS2-MODE ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(setq-default js2-basic-offset 2)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; SMART-MODE-LINE ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(sml/setup)
+(setq-default sml/no-confirm-load-theme t
+              sml/theme 'dark)
+(sml/apply-theme 'dark)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; SMART-MODE-LINE ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-undo-tree-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; DTRT-INDENT ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'dtrt-indent)
+(dtrt-indent-mode 1)
+(setq dtrt-indent-verbosity 0)
+
+(provide 'init-misc)

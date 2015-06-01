@@ -42,6 +42,7 @@
 
 (setq       helm-gtags-ignore-case t
             helm-gtags-auto-update t
+            helm-gtags-update-interval-second 20
             helm-gtags-use-input-at-cursor t
             helm-gtags-pulse-at-cursor t
             helm-gtags-prefix-key "\C-cg"
