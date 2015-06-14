@@ -29,9 +29,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 121 :width normal :foundry "unknown" :family "anonymous pro"))))
+ '(default ((t (:inherit nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 135 :width normal :foundry "unknown" :family "Anonymous Pro"))))
  '(ecb-default-highlight-face ((t (:background "gray16"))))
  '(linum ((t (:height 0.75 :width normal))))
+ '(mode-line ((t (:background "black" :foreground "gray60" :inverse-video nil :box nil :family "FreeSans"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "HotPink1"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "sandy brown"))))
  '(rainbow-delimiters-depth-4-face ((t (:foreground "light goldenrod"))))
@@ -42,9 +43,15 @@
  '(rainbow-delimiters-depth-9-face ((t (:foreground "magenta2"))))
  '(show-paren-match ((t (:inverse-video t :weight bold))))
  '(whitespace-tab ((t (:foreground "#839496")))))
+;; -----------End of Customize settings--------------
 
-(add-to-list 'load-path "~/.emacs.d/init")
-(add-to-list 'load-path "~/.emacs.d/lisp")
+;;--------------------------------------------------------
+;; Load 3rd party packages and initialization scripts
+;;--------------------------------------------------------
+
+(add-to-list 'load-path "~/.emacs.d/init") ;; init scripts for 3rd party packages
+(add-to-list 'load-path "~/.emacs.d/lisp") ;; my own lisp extensions
+
 (require 'init-packages)
 (require 'init-helm)
 (require 'init-evil)
@@ -56,3 +63,8 @@
 (require 'init-misc)
 (require 'init-ecb)
 (require 'utils)
+
+;; site-specific initializations - ignored by git
+(when (file-exists-p "~/.emacs.d/mylocal/init-mylocal.el")
+  (add-to-list 'load-path "~/.emacs.d/mylocal")
+  (require 'init-mylocal))
