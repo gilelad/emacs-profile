@@ -1,6 +1,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; COPY-FILE-PATH ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun copy-file-path (part)
-  "Copy a part of the file path to kill-ring."
+
   (interactive "cpart (d=directory, p=full path, n=file name)?")
   (let ((file (buffer-file-name))
         (str))
@@ -14,10 +14,19 @@
       (kill-new str)
       nil)))
 
-(global-set-key (kbd "C-c k d") (lambda () (interactive) (copy-file-path ?d)))
-(global-set-key (kbd "C-c k p") (lambda () (interactive) (copy-file-path ?p)))
-(global-set-key (kbd "C-c k n") (lambda () (interactive) (copy-file-path ?n)))
+(global-set-key (kbd "C-c C-k C-d") (lambda () (interactive) (copy-file-path ?d)))
+(global-set-key (kbd "C-c C-k C-p") (lambda () (interactive) (copy-file-path ?p)))
+(global-set-key (kbd "C-c C-k C-n") (lambda () (interactive) (copy-file-path ?n)))
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; COPY TABLE FIELD VALUE ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "C-c v")
+                (lambda ()
+                  (interactive)
+                  (kill-new (->> (org-table-get-field)
+                                 (replace-regexp-in-string "\\`[ \t\n\r]+" "")
+                                 (replace-regexp-in-string "[ \t\n\r]+\\'" "")))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; CREATE-BUFFER-HOOK ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-minor-mode create-buffer-mode

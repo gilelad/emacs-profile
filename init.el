@@ -6,7 +6,7 @@
  '(column-number-mode 1)
  '(custom-safe-themes
    (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
+    ("d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(default-frame-alist (quote ((fullscreen . maximized))))
  '(ecb-options-version "2.40")
  '(frame-background-mode (quote dark))
@@ -33,6 +33,7 @@
  '(ecb-default-highlight-face ((t (:background "gray16"))))
  '(linum ((t (:height 0.75 :width normal))))
  '(mode-line ((t (:background "black" :foreground "gray60" :inverse-video nil :box nil :family "FreeSans"))))
+ '(mode-line-inactive ((t (:background "#404045" :foreground "gray60" :inverse-video nil :box nil :family "FreeSans"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "HotPink1"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "sandy brown"))))
  '(rainbow-delimiters-depth-4-face ((t (:foreground "light goldenrod"))))
@@ -68,3 +69,5 @@
 (when (file-exists-p "~/.emacs.d/mylocal/init-mylocal.el")
   (add-to-list 'load-path "~/.emacs.d/mylocal")
   (require 'init-mylocal))
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
