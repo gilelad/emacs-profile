@@ -2,7 +2,6 @@
 (global-set-key (kbd "S-SPC") 'forward-char)
 (global-set-key (kbd "M-S-SPC") 'backward-char)
 
-(add-hook 'python-mode-hook (lambda () (setq tab-width 4)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; THEMES ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'custom-theme-load-path "~/.emacs.d/modules/emacs-color-theme-solarized")
@@ -14,7 +13,6 @@
 (require 'semantic/db)
 
 (set-default 'semantic-case-fold t)
-(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-idle-scheduler-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-minor-mode)
@@ -85,9 +83,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; SMART-MODE-LINE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-undo-tree-mode)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;; DTRT-INDENT ;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;; INDENTATION ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'dtrt-indent)
 (dtrt-indent-mode 1)
 (setq dtrt-indent-verbosity 0)
+(add-hook 'c-mode-hook (lambda ()
+                         (when indent-tabs-mode
+                           (smart-tabs-mode-enable))))
+
+(add-hook 'c-mode-hook (lambda ()
+                         (setq tab-width c-basic-offset)))
+
+(add-hook 'python-mode-hook (lambda () (setq tab-width 4)))
 
 (provide 'init-misc)
