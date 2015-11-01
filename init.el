@@ -13,9 +13,11 @@
  '(column-number-mode 1)
  '(custom-safe-themes
    (quote
-    ("d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
+	("d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(default-frame-alist (quote ((fullscreen . maximized))))
  '(ecb-options-version "2.40")
+ '(fci-rule-color "RoyalBlue4")
+ '(fill-column 80)
  '(frame-background-mode (quote dark))
  '(global-linum-mode t)
  '(inhibit-startup-screen t)

@@ -80,7 +80,7 @@
               sml/theme 'dark)
 (sml/apply-theme 'dark)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;; SMART-MODE-LINE ;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;; UNDO TREE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-undo-tree-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; INDENTATION ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -95,5 +95,11 @@
                          (setq tab-width c-basic-offset)))
 
 (add-hook 'python-mode-hook (lambda () (setq tab-width 4)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; FILL-COLUMN ;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'fill-column-indicator)
+(add-hook 'prog-mode-hook (lambda ()
+							(fci-mode)))
 
 (provide 'init-misc)
