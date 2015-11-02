@@ -42,4 +42,16 @@
     (create-buffer-mode t)))
 (global-create-buffer-mode t)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;; KILL-RING-SAVE-SYMBOL-AT-POINT ;;;;;;;;;;;;;;;;;;;;;
+(defun kill-ring-save-symbol-at-point ()
+  "Copy symbol at point to kill-ring"
+  (interactive)
+  (let ((sym (symbol-at-point)))
+	(if sym (kill-new (symbol-name sym)))))
+
+(global-set-key (kbd "C-c C-k C-.")
+				(lambda ()
+				  (interactive)
+				  (kill-ring-save-symbol-at-point)))
+
 (provide 'utils)
