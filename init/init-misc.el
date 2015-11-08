@@ -1,3 +1,9 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;; Emacs Server ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; Easy navigation ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "S-SPC") 'forward-char)
 (global-set-key (kbd "M-S-SPC") 'backward-char)
