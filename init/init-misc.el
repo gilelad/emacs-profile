@@ -108,4 +108,9 @@
 (add-hook 'prog-mode-hook (lambda ()
 							(fci-mode)))
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; SMOOTH-SCROLLING ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'smooth-scroll)
+(smooth-scroll-mode 1)
+
 (provide 'init-misc)
