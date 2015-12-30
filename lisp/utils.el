@@ -100,4 +100,22 @@
 
 (global-set-key (kbd "C-x 5 k") 'kill-current-buffer-and-frame)
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;INSERT-STRING-REGION-EVERY;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun insert-string-region-every (&optional arg)
+  "Insert string 's' every at 'i' intervals in region.
+default for 's' is '\n'.
+default for 'i' is fill-column"
+  (interactive "P")
+  (save-excursion
+	(let ((filler "\n")
+		  (every fill-column))
+	  (when arg
+		(message "unimplemented"))
+	  (goto-char (+ every (region-beginning)))
+	  (while (< (point) (region-end))
+		(insert filler)
+		(goto-char (+ every (point)))
+	  ))))
+
 (provide 'utils)
