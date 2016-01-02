@@ -110,7 +110,6 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; SMOOTH-SCROLLING ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'smooth-scroll)
-(smooth-scroll-mode 1)
+(require 'smooth-scrolling)
 
 (provide 'init-misc)
