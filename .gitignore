@@ -4,6 +4,8 @@ elpa/archives/
 eshell/
 mylocal/
 session.*
+.emacs.desktop
+.emacs.desktop.lock
 **/*.elc
 **/*.pyc
 elpa/*-readme.txt
