@@ -93,9 +93,19 @@
 (require 'dtrt-indent)
 (dtrt-indent-mode 1)
 (setq dtrt-indent-verbosity 0)
-(add-hook 'c-mode-hook (lambda ()
-                         (when indent-tabs-mode
-                           (smart-tabs-mode-enable))))
+
+;; (require 'smart-tabs-mode)
+;; (add-hook 'c-mode-hook (lambda ()
+;;                          (when indent-tabs-mode
+;;                            (smart-tabs-mode-enable))))
+
+(autoload 'smart-tabs-mode "smart-tabs-mode"
+  "Intelligently indent with tabs, align with spaces!")
+(autoload 'smart-tabs-mode-enable "smart-tabs-mode")
+(autoload 'smart-tabs-advice "smart-tabs-mode")
+(autoload 'smart-tabs-insinuate "smart-tabs-mode")
+
+(smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python 'ruby 'nxml)
 
 (add-hook 'c-mode-hook (lambda ()
                          (setq tab-width c-basic-offset)))
