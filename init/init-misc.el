@@ -94,11 +94,6 @@
 (dtrt-indent-mode 1)
 (setq dtrt-indent-verbosity 0)
 
-;; (require 'smart-tabs-mode)
-;; (add-hook 'c-mode-hook (lambda ()
-;;                          (when indent-tabs-mode
-;;                            (smart-tabs-mode-enable))))
-
 (autoload 'smart-tabs-mode "smart-tabs-mode"
   "Intelligently indent with tabs, align with spaces!")
 (autoload 'smart-tabs-mode-enable "smart-tabs-mode")
@@ -114,10 +109,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; FILL-COLUMN ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(add-hook 'prog-mode-hook 'auto-fill-mode)
 (require 'fill-column-indicator)
-(add-hook 'prog-mode-hook (lambda ()
-							(fci-mode)))
-
+(add-hook 'prog-mode-hook 'fci-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; SMOOTH-SCROLLING ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'smooth-scrolling)
