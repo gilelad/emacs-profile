@@ -17,6 +17,7 @@
 (require 'cc-mode)
 (require 'semantic)
 (require 'semantic/db)
+(require 'semantic/db-global)
 
 (set-default 'semantic-case-fold t)
 (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)

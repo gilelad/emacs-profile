@@ -54,10 +54,7 @@
   (let ((sym (symbol-at-point)))
 	(if sym (kill-new (symbol-name sym)))))
 
-(global-set-key (kbd "C-c C-k C-.")
-				(lambda ()
-				  (interactive)
-				  (kill-ring-save-symbol-at-point)))
+(global-set-key (kbd "C-c C-k C-.") 'kill-ring-save-symbol-at-point)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; MOVE/RENAME FILE AND BUFFER ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; From https://sites.google.com/site/steveyegge2/my-dot-emacs-file
@@ -96,15 +93,17 @@
 			  (set-buffer-modified-p nil)
 			  t))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;KILL-CURRENT-BUFFER-AND-FRAME;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;KILL-CURRENT-BUFFER-AND-WHATEVER;;;;;;;;;;;;;;;;;;;;;;;;
 (defun kill-current-buffer-and-frame ()
-  "kills the current buffer, and tries to kill the frame, as well"
+  "Tries to kill the current buffer, and if succeeds, the frame as well"
   (interactive)
   (if (kill-buffer)
 	  (delete-frame)))
-
 (global-set-key (kbd "C-x 5 k") 'kill-current-buffer-and-frame)
 
+(global-set-key (kbd "C-c C-k 0") (lambda ()
+									"Kill buffer and window"
+									(interactive) (quit-window t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;INSERT-STRING-REGION-EVERY;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun insert-string-region-every (&optional arg)
@@ -120,7 +119,6 @@ default for 'i' is fill-column"
 	  (goto-char (+ every (region-beginning)))
 	  (while (< (point) (region-end))
 		(insert filler)
-		(goto-char (+ every (point)))
-	  ))))
+		(goto-char (+ every (point)))))))
 
 (provide 'utils)
