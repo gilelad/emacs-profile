@@ -29,6 +29,7 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-c h k") 'helm-descbinds)
 
 
 ;;;;;;;; HELM-GTAGS ;;;;;;;;

@@ -1,9 +1,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; COPY-FILE-PATH ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun winpath (path)
+  (setq path (replace-regexp-in-string "^/cygdrive/\\([^/]*\\)/"
+									   "\\1:\\\\"
+									   path))
   (cond ((and path
              (equal (substring path 1 2) ":"))
-         (replace-regexp-in-string "/" "\\\\" path))
+         (replace-regexp-in-string "/"
+								   "\\\\"
+								   path))
         (t path)))
 
 (defun copy-file-path (part)
