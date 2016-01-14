@@ -3,4 +3,9 @@
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
-(add-to-list 'projectile-project-root-files ".projectile")
+
+;; remove tags files from list of root files
+(setq projectile-project-root-files
+	  (remove "TAGS" (remove
+					  "GTAGS"
+					  projectile-project-root-files)))
