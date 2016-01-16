@@ -3,15 +3,17 @@
 (unless (server-running-p)
   (server-start))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;PERFORMANCE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Default value of 800000 means frequent small freezes.
+;; 100000000 is the value used by spacemacs
+(setq gc-cons-threshold 100000000)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; Easy navigation ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "S-SPC") 'forward-char)
 (global-set-key (kbd "M-S-SPC") 'backward-char)
 
 (global-set-key (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;; THEMES ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(visual-line-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; CEDET ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cc-mode)
@@ -83,12 +85,6 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq-default js2-basic-offset 2)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;; SMART-MODE-LINE ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'powerline)
-(require 'powerline-evil)
-(require 'spaceline-config)
-(spaceline-spacemacs-theme)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; UNDO TREE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-undo-tree-mode)
 
@@ -116,16 +112,35 @@
 (require 'fill-column-indicator)
 (add-hook 'prog-mode-hook 'fci-mode)
 
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;; SMOOTH-SCROLLING ;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;; MODE-LINE ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'powerline)
+(require 'powerline-evil)
+(powerline-evil-center-color-theme)
+(load-theme 'airline-kolor)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MISC VISUALS;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'prog-mode-hook 'linum-mode)
+(setq linum-delay t)
+(load-theme 'spacemacs-dark)
+(global-hl-line-mode)
+
+;; Must have these after loading themes
+(setq evil-emacs-state-cursor '("red" bar))
+(setq evil-normal-state-cursor '("green" box))
+(setq evil-visual-state-cursor '("orange" box))
+(setq evil-insert-state-cursor '("red" bar))
+(setq evil-replace-state-cursor '("red" box))
+(setq evil-operator-state-cursor '("red" hollow))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; SMOOTH-SCROLLING ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'smooth-scrolling)
 (setq smooth-scroll-margin 5)
 (setq scroll-preserve-screen-position t)
 (setq auto-window-vscroll nil)
-(setq scorll-conservatively 101)
+(setq scroll-conservatively 101)
 
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;; GOLDEN-RATIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;; GOLDEN-RATIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'golden-ratio)
 (golden-ratio-mode 1)
-
 
 (provide 'init-misc)
