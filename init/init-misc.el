@@ -8,10 +8,10 @@
 (global-set-key (kbd "S-SPC") 'forward-char)
 (global-set-key (kbd "M-S-SPC") 'backward-char)
 
+(global-set-key (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; THEMES ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/emacs-color-theme-solarized")
-(load-theme 'solarized t)
+(visual-line-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; CEDET ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cc-mode)
@@ -32,6 +32,8 @@
 (semanticdb-enable-gnu-global-databases 'c-mode t)
 (semanticdb-enable-gnu-global-databases 'c++-mode t)
 (setq semantic-c-obey-conditional-section-parsing-flag nil)
+
+(require 'stickyfunc-enhance)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; WINMOVE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun ignore-error-wrapper (fn) ; from http://www.emacswiki.org/emacs/WindMove
@@ -82,10 +84,10 @@
 (setq-default js2-basic-offset 2)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; SMART-MODE-LINE ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(sml/setup)
-(setq-default sml/no-confirm-load-theme t
-              sml/theme 'dark)
-(sml/apply-theme 'dark)
+(require 'powerline)
+(require 'powerline-evil)
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; UNDO TREE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-undo-tree-mode)
@@ -114,7 +116,16 @@
 (require 'fill-column-indicator)
 (add-hook 'prog-mode-hook 'fci-mode)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;; SMOOTH-SCROLLING ;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;; SMOOTH-SCROLLING ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'smooth-scrolling)
+(setq smooth-scroll-margin 5)
+(setq scroll-preserve-screen-position t)
+(setq auto-window-vscroll nil)
+(setq scorll-conservatively 101)
+
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;; GOLDEN-RATIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'golden-ratio)
+(golden-ratio-mode 1)
+
 
 (provide 'init-misc)

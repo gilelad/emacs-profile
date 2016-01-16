@@ -101,9 +101,13 @@
 	  (delete-frame)))
 (global-set-key (kbd "C-x 5 k") 'kill-current-buffer-and-frame)
 
-(global-set-key (kbd "C-c C-k 0") (lambda ()
-									"Kill buffer and window"
-									(interactive) (quit-window t)))
+(defun kill-current-buffer-and-window ()
+  "Tries to kill the current buffer, and if succeeds, the window as well"
+  (interactive)
+  (if (kill-buffer)
+	  (delete-window)))
+(global-set-key (kbd "C-c C-k 0") 'kill-current-buffer-and-window)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;INSERT-STRING-REGION-EVERY;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun insert-string-region-every (&optional arg)
