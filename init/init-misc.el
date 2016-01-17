@@ -15,6 +15,8 @@
 
 (global-set-key (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
 
+(global-set-key (kbd "<f10>") 'ibuffer)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; CEDET ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cc-mode)
 (require 'semantic)
@@ -115,7 +117,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; MODE-LINE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'powerline)
 (require 'powerline-evil)
-;;(powerline-evil-center-color-theme)
 (load-theme 'airline-kolor)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MISC VISUALS;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -143,6 +144,19 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; GOLDEN-RATIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'golden-ratio)
+
+;; Take care of windmove as well
+(defadvice windmove-do-window-select
+	(around golden-ratio-resize-window)
+  (prog1 ad-do-it (golden-ratio)))
+
+(add-hook 'golden-ratio-mode-hook (lambda ()
+									(ad-activate 'windmove-do-window-select)))
+
 (golden-ratio-mode 1)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;; OPEN-JUNK-FILE ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'open-junk-file)
+(global-set-key (kbd "C-c C-j") 'open-junk-file)
 
 (provide 'init-misc)
