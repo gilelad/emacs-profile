@@ -34,6 +34,7 @@
 
 ;;;;;;;; HELM-GTAGS ;;;;;;;;
 (require 'helm-gtags)
+(require 'cc-mode)
 
 (add-hook 'dired-mode-hook 'helm-gtags-mode)
 (add-hook 'eshell-mode-hook 'helm-gtags-mode)

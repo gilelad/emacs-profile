@@ -3,15 +3,17 @@
 (unless (server-running-p)
   (server-start))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;PERFORMANCE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Default value of 800000 means frequent small freezes.
+;; 100000000 is the value used by spacemacs
+(setq gc-cons-threshold 100000000)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; Easy navigation ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "S-SPC") 'forward-char)
 (global-set-key (kbd "M-S-SPC") 'backward-char)
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;; THEMES ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'custom-theme-load-path "~/.emacs.d/modules/emacs-color-theme-solarized")
-(load-theme 'solarized t)
+(global-set-key (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; CEDET ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cc-mode)
@@ -32,6 +34,8 @@
 (semanticdb-enable-gnu-global-databases 'c-mode t)
 (semanticdb-enable-gnu-global-databases 'c++-mode t)
 (setq semantic-c-obey-conditional-section-parsing-flag nil)
+
+(require 'stickyfunc-enhance)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; WINMOVE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun ignore-error-wrapper (fn) ; from http://www.emacswiki.org/emacs/WindMove
@@ -81,12 +85,6 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq-default js2-basic-offset 2)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;; SMART-MODE-LINE ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(sml/setup)
-(setq-default sml/no-confirm-load-theme t
-              sml/theme 'dark)
-(sml/apply-theme 'dark)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; UNDO TREE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-undo-tree-mode)
 
@@ -114,7 +112,37 @@
 (require 'fill-column-indicator)
 (add-hook 'prog-mode-hook 'fci-mode)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;; MODE-LINE ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'powerline)
+(require 'powerline-evil)
+;;(powerline-evil-center-color-theme)
+(load-theme 'airline-kolor)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MISC VISUALS;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'prog-mode-hook 'linum-mode)
+(setq linum-delay t)
+(load-theme 'spacemacs-dark)
+(global-hl-line-mode)
+(setq-default vertical-scroll-bar nil)
+
+
+;; Must have these after loading themes
+(setq evil-emacs-state-cursor '("red" bar))
+(setq evil-normal-state-cursor '("green" box))
+(setq evil-visual-state-cursor '("orange" box))
+(setq evil-insert-state-cursor '("red" bar))
+(setq evil-replace-state-cursor '("red" box))
+(setq evil-operator-state-cursor '("red" hollow))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; SMOOTH-SCROLLING ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'smooth-scrolling)
+(setq smooth-scroll-margin 5)
+(setq scroll-preserve-screen-position t)
+(setq auto-window-vscroll nil)
+(setq scroll-conservatively 101)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; GOLDEN-RATIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'golden-ratio)
+(golden-ratio-mode 1)
 
 (provide 'init-misc)
