@@ -115,7 +115,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; MODE-LINE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'powerline)
 (require 'powerline-evil)
-(powerline-evil-center-color-theme)
+;;(powerline-evil-center-color-theme)
 (load-theme 'airline-kolor)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MISC VISUALS;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -123,6 +123,8 @@
 (setq linum-delay t)
 (load-theme 'spacemacs-dark)
 (global-hl-line-mode)
+(setq-default vertical-scroll-bar nil)
+
 
 ;; Must have these after loading themes
 (setq evil-emacs-state-cursor '("red" bar))

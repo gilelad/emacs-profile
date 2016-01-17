@@ -29,7 +29,6 @@
  '(make-backup-files nil)
  '(menu-bar-mode nil)
  '(python-shell-interpreter-args "-i --colors=NoColor")
- '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tab-width 4)
  '(tool-bar-mode nil))
