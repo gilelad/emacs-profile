@@ -41,6 +41,7 @@
  '(ecb-default-highlight-face ((t (:background "gray16"))))
  '(font-lock-comment-face ((t (:inherit nil :background "#292b2e" :foreground "#008787"))))
  '(font-lock-string-face ((t (:foreground "cyan"))))
+ '(helm-selection ((t (:background "dim gray" :foreground "#242322" :weight bold))))
  '(linum ((t (:height 0.75 :width normal))))
  '(mode-line ((t (:family "FreeSans"))))
  '(mode-line-inactive ((t (:family "FreeSans"))))
