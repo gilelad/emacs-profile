@@ -37,7 +37,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#292b2e" :foreground "#b2b2b2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "unknown" :family "Anonymous Pro"))))
+ '(default ((t (:inherit nil :stipple nil :background "#292b2e" :foreground "#b2b2b2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "unknown" :family "Hack"))))
+ '(airline-emacs-outer ((t (:background "#7eaefc" :foreground "#242322"))))
+ '(airline-insert-outer ((t (:background "#7eaefc" :foreground "#242322"))))
+ '(airline-replace-outer ((t (:background "red" :foreground "#75d7d8"))))
  '(ecb-default-highlight-face ((t (:background "gray16"))))
  '(font-lock-comment-face ((t (:inherit nil :background "#292b2e" :foreground "#008787"))))
  '(font-lock-string-face ((t (:foreground "cyan"))))

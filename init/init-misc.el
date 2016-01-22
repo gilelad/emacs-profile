@@ -127,13 +127,24 @@
 (setq-default vertical-scroll-bar nil)
 
 
+(require 'airline-themes)
+(load-theme 'airline-kolor)
+;; airline seperators
+(setq airline-utf-glyph-separator-left      #xe0b0
+      airline-utf-glyph-separator-right     #xe0b2
+      airline-utf-glyph-subseparator-left   #xe0b1
+      airline-utf-glyph-subseparator-right  #xe0b3
+      airline-utf-glyph-branch              #xe0a0
+      airline-utf-glyph-readonly            #xe0a2
+      airline-utf-glyph-linenumber          #xe0a1)
+
 ;; Must have these after loading themes
-(setq evil-emacs-state-cursor '("red" bar))
-(setq evil-normal-state-cursor '("green" box))
-(setq evil-visual-state-cursor '("orange" box))
-(setq evil-insert-state-cursor '("red" bar))
-(setq evil-replace-state-cursor '("red" box))
-(setq evil-operator-state-cursor '("red" hollow))
+(setq evil-emacs-state-cursor '("#7eaefc" bar)
+      evil-normal-state-cursor '("#4f3598" box)
+      evil-visual-state-cursor '("#e6987a" box)
+      evil-insert-state-cursor evil-emacs-state-cursor
+      evil-replace-state-cursor '("red" box)
+      evil-operator-state-cursor '("red" hollow))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; SMOOTH-SCROLLING ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'smooth-scrolling)
@@ -144,6 +155,17 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; GOLDEN-RATIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'golden-ratio)
+
+(defun ge/after-windmove-golden (orig &rest args)
+  (golden-ratio))
+
+;;Take care of windmove as well
+(add-hook 'golden-ratio-mode-hook
+          (lambda ()
+            (if golden-ratio-mode
+                (advice-add 'windmove-do-window-select :after #'ge/after-windmove-golden)
+              (advice-remove 'windmove-do-window-select #'ge/after-windmove-golden))))
+
 (golden-ratio-mode 1)
 
 ;; Take care of windmove as well
