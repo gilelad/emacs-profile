@@ -37,5 +37,4 @@
 
 (golden-ratio-mode 1)
 
-
 (provide 'init-nav)
