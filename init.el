@@ -76,6 +76,7 @@
 (require 'init-repls)
 (require 'init-prog)
 (require 'init-nav)
+(require 'init-vis)
 (require 'init-misc)
 (require 'utils)
 
