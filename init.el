@@ -71,13 +71,10 @@
 
 (require 'init-packages)
 (require 'init-evil)
-(require 'init-rainbow-delimiters)
-(require 'init-company)
 (require 'init-helm)
 (require 'init-helm-projectile)
-(require 'init-function-args)
-(require 'init-ecb)
 (require 'init-repls)
+(require 'init-prog)
 (require 'init-misc)
 (require 'utils)
 
