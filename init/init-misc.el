@@ -22,4 +22,7 @@
 (require 'open-junk-file)
 (global-set-key (kbd "C-c C-j") 'open-junk-file)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; AUTO-REVERT ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-auto-revert-mode)
+
 (provide 'init-misc)
