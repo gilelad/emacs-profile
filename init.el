@@ -77,6 +77,7 @@
 (require 'init-function-args)
 (require 'init-misc)
 (require 'init-ecb)
+(require 'init-repls)
 (require 'utils)
 
 ;; ;; site-specific initializations - ignored by git
