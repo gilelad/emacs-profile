@@ -42,6 +42,7 @@
  '(airline-insert-outer ((t (:background "#7eaefc" :foreground "#242322"))))
  '(airline-replace-outer ((t (:background "red" :foreground "#75d7d8"))))
  '(ecb-default-highlight-face ((t (:background "gray16"))))
+ '(evil-search-highlight-persist-highlight-face ((t (:background "yellow1" :foreground "black"))))
  '(font-lock-comment-face ((t (:inherit nil :background "#292b2e" :foreground "#008787"))))
  '(font-lock-string-face ((t (:foreground "cyan"))))
  '(helm-selection ((t (:background "dim gray" :foreground "#242322" :weight bold))))
