@@ -70,15 +70,15 @@
 (add-to-list 'load-path "~/.emacs.d/lisp") ;; my own lisp extensions
 
 (require 'init-packages)
-(require 'init-helm)
 (require 'init-evil)
 (require 'init-rainbow-delimiters)
 (require 'init-company)
+(require 'init-helm)
 (require 'init-helm-projectile)
 (require 'init-function-args)
-(require 'init-misc)
 (require 'init-ecb)
 (require 'init-repls)
+(require 'init-misc)
 (require 'utils)
 
 ;; ;; site-specific initializations - ignored by git
