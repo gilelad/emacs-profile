@@ -75,6 +75,7 @@
 (require 'init-helm-projectile)
 (require 'init-repls)
 (require 'init-prog)
+(require 'init-nav)
 (require 'init-misc)
 (require 'utils)
 
