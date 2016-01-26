@@ -37,8 +37,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#292b2e" :foreground "#b2b2b2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "unknown" :family "Anonymous Pro"))))
+ '(default ((t (:inherit nil :stipple nil :background "#292b2e" :foreground "#b2b2b2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "unknown" :family "Hack"))))
+ '(airline-emacs-outer ((t (:background "#7eaefc" :foreground "#242322"))))
+ '(airline-insert-outer ((t (:background "#7eaefc" :foreground "#242322"))))
+ '(airline-replace-outer ((t (:background "red" :foreground "#75d7d8"))))
  '(ecb-default-highlight-face ((t (:background "gray16"))))
+ '(evil-search-highlight-persist-highlight-face ((t (:background "yellow1" :foreground "black"))))
  '(font-lock-comment-face ((t (:inherit nil :background "#292b2e" :foreground "#008787"))))
  '(font-lock-string-face ((t (:foreground "cyan"))))
  '(helm-selection ((t (:background "dim gray" :foreground "#242322" :weight bold))))
@@ -66,14 +70,14 @@
 (add-to-list 'load-path "~/.emacs.d/lisp") ;; my own lisp extensions
 
 (require 'init-packages)
-(require 'init-helm)
 (require 'init-evil)
-(require 'init-rainbow-delimiters)
-(require 'init-company)
+(require 'init-helm)
 (require 'init-helm-projectile)
-(require 'init-function-args)
+(require 'init-repls)
+(require 'init-prog)
+(require 'init-nav)
+(require 'init-vis)
 (require 'init-misc)
-(require 'init-ecb)
 (require 'utils)
 
 ;; ;; site-specific initializations - ignored by git
