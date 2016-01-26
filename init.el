@@ -39,7 +39,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#292b2e" :foreground "#b2b2b2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "unknown" :family "Hack"))))
+ '(default ((t (:inherit nil :stipple nil :background "#292b2e" :foreground "#b2b2b2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 105 :width normal :foundry "outline" :family "Hack"))))
  '(airline-emacs-outer ((t (:background "#7eaefc" :foreground "#242322"))))
  '(airline-insert-outer ((t (:background "#7eaefc" :foreground "#242322"))))
  '(airline-replace-outer ((t (:background "red" :foreground "#75d7d8"))))
@@ -49,8 +49,8 @@
  '(font-lock-string-face ((t (:foreground "cyan"))))
  '(helm-selection ((t (:background "dim gray" :foreground "#242322" :weight bold))))
  '(linum ((t (:height 0.75 :width normal))))
- '(mode-line ((t (:family "FreeSans"))))
- '(mode-line-inactive ((t (:family "FreeSans"))))
+ '(mode-line ((t (:height 100 :family "Hack"))))
+ '(mode-line-inactive ((t (:family "Hack"))))
  '(rainbow-delimiters-depth-1-face ((t (:inherit outline-1 :foreground "RoyalBlue1"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "HotPink1"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "sandy brown"))))
