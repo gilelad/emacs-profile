@@ -126,14 +126,16 @@ default for 'i' is fill-column"
 		(goto-char (+ every (point)))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ALIGN-REGION-USING-SPACES;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun ge/bol-of-line (n)
+(defun ge/start-of-line (n)
   (save-excursion
-	(goto-line n)
+	(goto-char (point-min))
+	(forward-line (1- n))
 	(line-beginning-position)))
 
-(defun ge/eol-of-line (n)
+(defun ge/end-of-line (n)
   (save-excursion
-	(goto-line n)
+	(goto-char (point-min))
+	(forward-line (1- n))
 	(line-end-position)))
 
 (defun ge/align-region-spaces ()
@@ -144,12 +146,11 @@ default for 'i' is fill-column"
 		(let ((lstart (line-number-at-pos (region-beginning)))
 			  (lend (line-number-at-pos (region-end))))
 
-
 		  (progn
 			(let ((indent-tabs-mode nil))
 			  (replace-string "\t" " " nil (region-beginning) (region-end))
 			  (replace-regexp " +" " " nil (region-beginning) (region-end))
 			  (align-entire (region-beginning) (region-end)))
-			(indent-region (ge/bol-of-line lstart) (ge/eol-of-line lend)))))))
+			(indent-region (ge/start-of-line lstart) (ge/end-of-line lend)))))))
 
 (provide 'utils)
