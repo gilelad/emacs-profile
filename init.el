@@ -1,3 +1,5 @@
+    ;;; init.el --- user init file      -*- no-byte-compile: t -*-
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -65,11 +67,9 @@
 ;;--------------------------------------------------------
 ;; Load 3rd party packages and initialization scripts
 ;;--------------------------------------------------------
-
 (add-to-list 'load-path "~/.emacs.d/init") ;; init scripts for 3rd party packages
-(add-to-list 'load-path "~/.emacs.d/lisp") ;; my own lisp extensions
+(require 'init-lisp-loader)
 
-(require 'init-packages)
 (require 'init-evil)
 (require 'init-helm)
 (require 'init-helm-projectile)
@@ -80,11 +80,10 @@
 (require 'init-misc)
 (require 'utils)
 
-;; ;; site-specific initializations - ignored by git
+;; site-specific initializations - ignored by git
 (when (file-exists-p "~/.emacs.d/mylocal/init-mylocal.el")
-  (add-to-list 'load-path "~/.emacs.d/mylocal")
-
   (require 'init-mylocal))
+
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
