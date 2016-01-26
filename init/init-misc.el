@@ -17,6 +17,16 @@
 
 (global-set-key (kbd "<f10>") 'ibuffer)
 
+;; Don't let org-mode steal our keyboard prefix
+(require 'org)
+(org-defkey org-mode-map "\C-c\C-k" nil)
+(org-defkey org-mode-map "\C-ck" 'org-kill-note-or-show-branches)
+(org-defkey org-mode-map (kbd "C-c SPC") nil)
+(org-defkey org-mode-map (kbd "<S-left>") nil)
+(org-defkey org-mode-map (kbd "<S-right>") nil)
+(org-defkey org-mode-map (kbd "<S-up>") nil)
+(org-defkey org-mode-map (kbd "<S-down>") nil)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; CEDET ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cc-mode)
 (require 'semantic)

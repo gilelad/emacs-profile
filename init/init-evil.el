@@ -6,7 +6,7 @@
 
 ;; persist search highlights
 (evil-search-highlight-persist 1)
-(global-set-key (kbd "C-c C-n") 'evil-search-highlight-persist-remove-all)
+(global-set-key (kbd "C-c C-k C-r") 'evil-search-highlight-persist-remove-all)
 
 ;; use emacs-mode instead of insert-mode, for extended navigation shortcuts
 (add-hook 'evil-insert-state-entry-hook 'evil-emacs-state)
