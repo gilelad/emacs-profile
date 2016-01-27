@@ -15,8 +15,10 @@
 	 (define-key haskell-mode-map (kbd "C-c c i") 'haskell-process-do-info)
 	 (define-key haskell-mode-map (kbd "C-c M-.") nil)
 	 (define-key haskell-mode-map (kbd "C-c C-d") nil)
-	 (define-key haskell-mode-map (kbd "C-c c k") 'haskell-session-kill)
+	 (define-key haskell-mode-map (kbd "C-c c k") 'haskell-session-kill)))
 
+(eval-after-load "haskell-interactive-mode"
+  '(progn
 	 (define-key haskell-interactive-mode-map (kbd "C-c c o") 'haskell-interactive-switch-back)))
 
 (provide 'init-repls)
