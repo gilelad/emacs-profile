@@ -78,7 +78,7 @@
 (require 'init-nav)
 (require 'init-vis)
 (require 'init-misc)
-(require 'utils)
+(require 'ge-utils)
 
 ;; site-specific initializations - ignored by git
 (when (file-exists-p "~/.emacs.d/mylocal/init-mylocal.el")

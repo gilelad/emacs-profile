@@ -2,9 +2,7 @@
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "S-SPC") 'forward-char)
 (global-set-key (kbd "M-S-SPC") 'backward-char)
-
 (global-set-key (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
-
 (global-set-key (kbd "<f10>") 'ibuffer)
 
 ;; Don't let org-mode steal our keyboard prefix
@@ -18,19 +16,12 @@
 (org-defkey org-mode-map (kbd "<S-down>") nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; WINDMOVE ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun ignore-error-wrapper (fn) ; from http://www.emacswiki.org/emacs/WindMove
-  "Funtion return new function that ignore errors.
-   The function wraps a function with `ignore-errors' macro."
-  (lexical-let ((fn fn))
-    (lambda ()
-      (interactive)
-      (ignore-errors
-        (funcall fn)))))
+(require 'ge-utils) ;; for ge/ignore-error-wrapper
 
-(global-set-key (kbd "<S-left>") (ignore-error-wrapper 'windmove-left))
-(global-set-key (kbd "<S-right>") (ignore-error-wrapper 'windmove-right))
-(global-set-key (kbd "<S-up>") (ignore-error-wrapper 'windmove-up))
-(global-set-key (kbd "<S-down>") (ignore-error-wrapper 'windmove-down))
+(global-set-key (kbd "<S-left>") (ge/ignore-error-wrapper 'windmove-left))
+(global-set-key (kbd "<S-right>") (ge/ignore-error-wrapper 'windmove-right))
+(global-set-key (kbd "<S-up>") (ge/ignore-error-wrapper 'windmove-up))
+(global-set-key (kbd "<S-down>") (ge/ignore-error-wrapper 'windmove-down))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; GOLDEN-RATIO ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'golden-ratio)

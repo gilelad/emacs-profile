@@ -32,12 +32,12 @@
 (setq evil-move-cursor-back nil)
 
 ;; auto-activate evil on non-sepcial buffers
-(require 'utils)
-(defun auto-evil-local ()
+(require 'ge-utils)
+(defun ge/auto-evil-local ()
   (if (and (not (string-match "^\\*" (buffer-name)))
            (not (string-match "^ " (buffer-name))))
       (evil-local-mode t)
     nil))
- (add-hook 'create-buffer-mode-hook 'auto-evil-local)
+ (add-hook 'ge/create-buffer-mode-hook 'ge/auto-evil-local)
 
 (provide 'init-evil)

@@ -1,6 +1,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; COPY-FILE-PATH ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun winpath (path)
+(defun ge/winpath (path)
   (setq path (replace-regexp-in-string "^/cygdrive/\\([^/]*\\)/"
 									   "\\1:\\\\"
 									   path))
@@ -11,7 +11,7 @@
 								   path))
         (t path)))
 
-(defun copy-file-path (part)
+(defun ge/copy-file-path (part)
   (interactive "cpart (d=directory, p=full path, n=file name)?")
   (let ((file (buffer-file-name))
         (str))
@@ -22,12 +22,12 @@
              (setq str (expand-file-name file)))
             ((eq part ?n)
              (setq str (file-name-nondirectory file))))
-      (kill-new (winpath str))
+      (kill-new (ge/winpath str))
       nil)))
 
-(global-set-key (kbd "C-c C-k C-d") (lambda () (interactive) (copy-file-path ?d)))
-(global-set-key (kbd "C-c C-k C-p") (lambda () (interactive) (copy-file-path ?p)))
-(global-set-key (kbd "C-c C-k C-n") (lambda () (interactive) (copy-file-path ?n)))
+(global-set-key (kbd "C-c C-k C-d") (lambda () (interactive) (ge/copy-file-path ?d)))
+(global-set-key (kbd "C-c C-k C-p") (lambda () (interactive) (ge/copy-file-path ?p)))
+(global-set-key (kbd "C-c C-k C-n") (lambda () (interactive) (ge/copy-file-path ?n)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; COPY TABLE FIELD VALUE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "C-c v")
@@ -38,29 +38,29 @@
                                  (replace-regexp-in-string "[ \t\n\r]+\\'" "")))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; CREATE-BUFFER-HOOK ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(define-minor-mode create-buffer-mode
+(define-minor-mode ge/create-buffer-mode
   "empty minor mode designed to provide a create-buffer hook")
 
-(define-globalized-minor-mode global-create-buffer-mode
-  create-buffer-mode
+(define-globalized-minor-mode ge/global-create-buffer-mode
+  ge/create-buffer-mode
   (lambda ()
-    (create-buffer-mode t)))
-(global-create-buffer-mode t)
+    (ge/create-buffer-mode t)))
+(ge/global-create-buffer-mode t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; KILL-RING-SAVE-SYMBOL-AT-POINT ;;;;;;;;;;;;;;;;;;;;;
-(defun kill-ring-save-symbol-at-point ()
+(defun ge/kill-ring-save-symbol-at-point ()
   "Copy symbol at point to kill-ring"
   (interactive)
   (let ((sym (symbol-at-point)))
 	(if sym (kill-new (symbol-name sym)))))
 
-(global-set-key (kbd "C-c C-k C-.") 'kill-ring-save-symbol-at-point)
+(global-set-key (kbd "C-c C-k C-.") 'ge/kill-ring-save-symbol-at-point)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; MOVE/RENAME FILE AND BUFFER ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; From https://sites.google.com/site/steveyegge2/my-dot-emacs-file
 ;; Never understood why Emacs doesn't have this function.
 ;;
-(defun rename-file-and-buffer (new-name)
+(defun ge/rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
   (let ((name (buffer-name))
@@ -76,7 +76,7 @@
 ;;
 ;; Never understood why Emacs doesn't have this function, either.
 ;;
-(defun move-buffer-file (dir)
+(defun ge/move-buffer-file (dir)
   "Moves both current buffer and file it's visiting to DIR."
   (interactive "DNew directory: ")
   (let* ((name (buffer-name))
@@ -94,23 +94,23 @@
 			  t))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;KILL-CURRENT-BUFFER-AND-WHATEVER;;;;;;;;;;;;;;;;;;;;;;;;
-(defun kill-current-buffer-and-frame ()
+(defun ge/kill-current-buffer-and-frame ()
   "Tries to kill the current buffer, and if succeeds, the frame as well"
   (interactive)
   (if (kill-buffer)
 	  (delete-frame)))
-(global-set-key (kbd "C-x 5 k") 'kill-current-buffer-and-frame)
+(global-set-key (kbd "C-x 5 k") 'ge/kill-current-buffer-and-frame)
 
-(defun kill-current-buffer-and-window ()
+(defun ge/kill-current-buffer-and-window ()
   "Tries to kill the current buffer, and if succeeds, the window as well"
   (interactive)
   (if (kill-buffer)
 	  (delete-window)))
-(global-set-key (kbd "C-c C-k 0") 'kill-current-buffer-and-window)
+(global-set-key (kbd "C-c C-k 0") 'ge/kill-current-buffer-and-window)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;INSERT-STRING-REGION-EVERY;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun insert-string-region-every (&optional arg)
+(defun ge/insert-string-region-every (&optional arg)
   "Insert string 's' every at 'i' intervals in region.
 default for 's' is '\n'.
 default for 'i' is fill-column"
@@ -153,4 +153,15 @@ default for 'i' is fill-column"
 			  (align-entire (region-beginning) (region-end)))
 			(indent-region (ge/start-of-line lstart) (ge/end-of-line lend)))))))
 
-(provide 'utils)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; IGNORE-ERRORS-WRAPPER ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun ge/ignore-error-wrapper (fn) ; from http://www.emacswiki.org/emacs/WindMove
+  "Funtion return new function that ignore errors.
+   The function wraps a function with `ignore-errors' macro."
+  (lexical-let ((fn fn))
+    (lambda ()
+      (interactive)
+      (ignore-errors
+        (funcall fn)))))
+
+(provide 'ge-utils)
