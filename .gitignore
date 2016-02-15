@@ -17,3 +17,5 @@ server/
 **/\#*
 **/.\#*
 **/*~
+mylocal/gnuglobal/
+mylocal/vc-clearcase/
