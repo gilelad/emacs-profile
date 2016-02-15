@@ -2,7 +2,6 @@ auto-save-list/
 semanticdb/
 elpa/archives/
 eshell/
-mylocal/
 session.*
 .emacs.desktop
 .emacs.desktop.lock
