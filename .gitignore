@@ -12,6 +12,7 @@ elpa/*-readme.txt
 elpa/gnupg/
 **/*.eld
 projectile.cache
+emacs_backtrace.txt
 recentf
 server/
 **/\#*
