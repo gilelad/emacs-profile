@@ -31,6 +31,11 @@
  '(make-backup-files nil)
  '(menu-bar-mode nil)
  '(python-shell-interpreter-args "-i --colors=NoColor")
+ '(safe-local-variable-values
+   (quote
+	((eval setq byte-compile-not-obsolete-vars
+		   (quote
+			(display-buffer-function))))))
  '(show-paren-mode t)
  '(tab-width 4)
  '(tool-bar-mode nil))
