@@ -24,17 +24,15 @@
 (require 'function-args)
 
 (fa-config-default)
-(define-key c-mode-map  (kbd "<C-tab>") 'moo-complete)
-(define-key c++-mode-map  (kbd "<C-tab>") 'moo-complete)
 (setq-default moo-select-method 'helm)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; COMPANY ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'company)
 (require 'cc-mode)
 (add-hook 'after-init-hook 'global-company-mode)
-(define-key c-mode-map  (kbd "<tab>") 'company-complete)
-(define-key c++-mode-map  (kbd "<tab>") 'company-complete)
-(setq company-backends '(company-semantic company-capf company-dabbrev-code company-gtags company-etags company-keywords company-files company-dabbrev))
+(global-set-key (kbd "C-M-i") 'helm-company)
+(setq company-idle-delay nil)
+(setq company-backends '((company-dabbrev-code company-capf company-dabbrev) company-gtags company-etags company-keywords company-files))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; GDB ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq

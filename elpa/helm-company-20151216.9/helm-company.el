@@ -54,6 +54,11 @@ Set it to nil if you don't want this limit."
 (defvar helm-company-help-window nil)
 (defvar helm-company-backend nil)
 
+(defun helm-company-call-backend (&rest args)
+  "Bridge between helm-company and company"
+  (let ((company-backend helm-company-backend))
+    (company-call-backend args)))
+
 (defun helm-company-init ()
   "Prepare helm for company."
   (helm-attrset 'company-candidates company-candidates)
@@ -74,14 +79,14 @@ Set it to nil if you don't want this limit."
 (defun helm-company-action-show-document (candidate)
   "Show the documentation of the CANDIDATE."
   (interactive)
-  (let ((buffer (funcall helm-company-backend 'doc-buffer candidate)))
+  (let ((buffer (helm-company-call-backend 'doc-buffer candidate)))
     (when buffer
       (display-buffer buffer))))
 
 (defun helm-company-show-doc-buffer (candidate)
   "Temporarily show the documentation buffer for the CANDIDATE."
   (interactive)
-  (let ((buffer (funcall helm-company-backend 'doc-buffer candidate)))
+  (let ((buffer (helm-company-call-backend 'doc-buffer candidate)))
     (when buffer
       (if (and helm-company-help-window
                (window-live-p helm-company-help-window))
@@ -93,7 +98,7 @@ Set it to nil if you don't want this limit."
 (defun helm-company-find-location (candidate)
   "Find location of CANDIDATE."
   (interactive)
-  (let* ((location (save-excursion (funcall helm-company-backend 'location candidate)))
+  (let* ((location (save-excursion (helm-company-call-backend 'location candidate)))
          (pos (or (cdr location) (error "No location available")))
          (buffer (or (and (bufferp (car location)) (car location))
                      (find-file-noselect (car location) t))))
