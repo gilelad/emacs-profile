@@ -73,7 +73,9 @@
 ;;--------------------------------------------------------
 ;; Load 3rd party packages and initialization scripts
 ;;--------------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/init") ;; init scripts for 3rd party packages
+(add-to-list 'load-path (concat user-emacs-directory "init")) ;; init scripts for 3rd party packages
+(add-to-list 'load-path (concat user-emacs-directory "lisp")) ;; my own lisp extensions
+
 (require 'init-lisp-loader)
 
 (require 'ge-utils)

@@ -1,9 +1,3 @@
-(add-to-list 'load-path "~/.emacs.d/lisp") ;; my own lisp extensions
-
-;; site-specific initializations - ignored by git
-(when (nth 0 (file-attributes "~/.emacs.d/mylocal")) ; when directory exits
-  (add-to-list 'load-path "~/.emacs.d/mylocal"))
-
 ;; packages
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
