@@ -162,4 +162,14 @@ default for 'i' is fill-column"
       (ignore-errors
         (funcall fn)))))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; SUBMODULES ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun ge/add-submodule-to-loadpath (sub)
+  "Add the submodule subdirectory \"sub\", assumed to be located under
+  \"~/.emacs.d/modules\" to loadpath"
+  (interactive)
+  (let ((dir (ge/winpath (concat user-emacs-directory "modules/" sub))))
+	(when (file-directory-p dir)
+		(add-to-list 'load-path dir))))
+
 (provide 'ge-utils)

@@ -46,7 +46,6 @@
 						haskell-mode
 						helm
 						helm-ag
-						helm-company
 						helm-descbinds
 						helm-ghc
 						helm-gtags

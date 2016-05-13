@@ -1,5 +1,4 @@
 (require 'helm-config)
-(require 'helm-company)
 (require 'helm-misc)
 
 (setq helm-quick-update t
@@ -58,5 +57,14 @@
 (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
+
+;;;;;;;; HELM-COMPANY ;;;;;;;;
+(when (ge/add-submodule-to-loadpath "helm-company")
+  (autoload 'helm-company "helm-company")
+  (eval-after-load 'company
+  '(progn
+     (define-key company-mode-map (kbd "C-:") 'helm-company)
+     (define-key company-active-map (kbd "C-:") 'helm-company)))
+  (global-set-key (kbd "C-M-i") 'helm-company))
 
 (provide 'init-helm)
