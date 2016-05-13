@@ -33,7 +33,8 @@
  '(python-shell-interpreter-args "-i --colors=NoColor")
  '(safe-local-variable-values
    (quote
-	((eval setq byte-compile-not-obsolete-vars
+	((c-font-lock-extra-types "FILE" "bool" "language" "linebuffer" "fdesc" "node" "regexp")
+	 (eval setq byte-compile-not-obsolete-vars
 		   (quote
 			(display-buffer-function))))))
  '(show-paren-mode t)
