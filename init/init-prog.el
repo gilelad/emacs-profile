@@ -1,7 +1,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; ELISP ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "C-c C-k C-f") 'find-function)
-(global-set-key (kbd "C-c C-k C-.") 'find-function-at-point)
-
+(global-set-key (kbd "C-c C-k C-f C-f") 'find-function)
+(global-set-key (kbd "C-c C-k C-f C-.") 'find-function-at-point)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; CEDET ;;;;;;;;;;;;;;;;;;;;;;;;;;
