@@ -16,7 +16,6 @@
 (org-defkey org-mode-map (kbd "<S-down>") nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; WINDMOVE ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'ge-utils) ;; for ge/ignore-error-wrapper
 
 (global-set-key (kbd "<S-left>") (ge/ignore-error-wrapper 'windmove-left))
 (global-set-key (kbd "<S-right>") (ge/ignore-error-wrapper 'windmove-right))

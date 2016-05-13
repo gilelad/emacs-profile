@@ -32,7 +32,6 @@
 (setq evil-move-cursor-back nil)
 
 ;; auto-activate evil on non-sepcial buffers
-(require 'ge-utils)
 (defun ge/auto-evil-local ()
   (if (and (not (string-match "^\\*" (buffer-name)))
            (not (string-match "^ " (buffer-name))))

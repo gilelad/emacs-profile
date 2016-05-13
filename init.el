@@ -76,6 +76,7 @@
 (add-to-list 'load-path "~/.emacs.d/init") ;; init scripts for 3rd party packages
 (require 'init-lisp-loader)
 
+(require 'ge-utils)
 (require 'init-evil)
 (require 'init-helm)
 (require 'init-helm-projectile)
@@ -84,7 +85,6 @@
 (require 'init-nav)
 (require 'init-vis)
 (require 'init-misc)
-(require 'ge-utils)
 
 ;; site-specific initializations - ignored by git
 (when (file-exists-p "~/.emacs.d/mylocal/init-mylocal.el")
