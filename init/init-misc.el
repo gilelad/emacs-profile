@@ -18,10 +18,6 @@
 (setq auto-window-vscroll nil)
 (setq scroll-conservatively 101)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;; OPEN-JUNK-FILE ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'open-junk-file)
-(global-set-key (kbd "C-c C-j") 'open-junk-file)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; AUTO-REVERT ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-auto-revert-mode)
 

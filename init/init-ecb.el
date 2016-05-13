@@ -5,13 +5,11 @@
 
   (setq ecb-tip-of-the-day nil)  ;; disble tip of the day at startup
 
-  ;; map <f6> to toggle ECB
-  (defun gile-ecb-toggle ()
+  (defun ge/ecb-toggle ()
     "toggle ECB. Activates ECB if off. Toggles ECB window display if on."
     (interactive)
     (if ecb-minor-mode
         (ecb-toggle-ecb-windows)
-      (ecb-activate)))
-  (global-set-key (kbd "<f6>") 'gile-ecb-toggle))
+      (ecb-activate))))
 
 (provide 'init-ecb)

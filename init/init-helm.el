@@ -8,11 +8,6 @@
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-unset-key (kbd "C-x c"))
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 (when (executable-find "curl")
   (setq helm-google-suggest-use-curl-p t))
 (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
@@ -23,13 +18,7 @@
       helm-ff-file-name-history-use-recentf t)
 (helm-mode 1)
 (helm-autoresize-mode t)
-(global-set-key (kbd "M-x") 'helm-M-x)
 (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-c h k") 'helm-descbinds)
-
 
 ;;;;;;;; HELM-GTAGS ;;;;;;;;
 (require 'helm-gtags)
@@ -45,26 +34,11 @@
             helm-gtags-auto-update t
             helm-gtags-use-input-at-cursor t
             helm-gtags-pulse-at-cursor t
-            helm-gtags-prefix-key "\C-cg"
             helm-gtags-fuzzy-match t
             helm-gtags-suggested-key-mapping t)
 
-(define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
-(define-key helm-gtags-mode-map (kbd "C-c g r") 'helm-gtags-find-rtag)
-(define-key helm-gtags-mode-map (kbd "C-c g s") 'helm-gtags-find-symbol)
-(define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
-(define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
-(define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
-(define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
-(define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
-
 ;;;;;;;; HELM-COMPANY ;;;;;;;;
 (when (ge/add-submodule-to-loadpath "helm-company")
-  (autoload 'helm-company "helm-company")
-  (eval-after-load 'company
-  '(progn
-     (define-key company-mode-map (kbd "C-:") 'helm-company)
-     (define-key company-active-map (kbd "C-:") 'helm-company)))
-  (global-set-key (kbd "C-M-i") 'helm-company))
+  (autoload 'helm-company "helm-company"))
 
 (provide 'init-helm)

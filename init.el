@@ -85,10 +85,12 @@
 (require 'init-nav)
 (require 'init-vis)
 (require 'init-misc)
+(require 'init-keys)
 
 ;; site-specific initializations - ignored by git
-(when (file-exists-p "~/.emacs.d/mylocal/init-mylocal.el")
-  (require 'init-mylocal))
+(when (file-directory-p (concat user-emacs-directory "mylocal"))
+  (add-to-list 'load-path (concat user-emacs-directory "mylocal"))
+  (require 'init-mylocal nil t))
 
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)

@@ -4,38 +4,30 @@
   (setq path (replace-regexp-in-string "^/cygdrive/\\([^/]*\\)/"
 									   "\\1:\\\\"
 									   path))
-  (cond ((and path
-             (equal (substring path 1 2) ":"))
-         (replace-regexp-in-string "/"
-								   "\\\\"
-								   path))
+  (cond ((and path (equal (substring path 1 2) ":"))
+         (replace-regexp-in-string "/" "\\\\" path))
         (t path)))
 
 (defun ge/copy-file-path (part)
   (interactive "cpart (d=directory, p=full path, n=file name)?")
-  (let ((file (buffer-file-name))
-        (str))
+  (let ((file (buffer-file-name)))
     (when file
-      (cond ((eq part ?d)
-             (setq str (file-name-directory file)))
-            ((eq part ?p)
-             (setq str (expand-file-name file)))
-            ((eq part ?n)
-             (setq str (file-name-nondirectory file))))
-      (kill-new (ge/winpath str))
-      nil)))
-
-(global-set-key (kbd "C-c C-k C-d") (lambda () (interactive) (ge/copy-file-path ?d)))
-(global-set-key (kbd "C-c C-k C-p") (lambda () (interactive) (ge/copy-file-path ?p)))
-(global-set-key (kbd "C-c C-k C-n") (lambda () (interactive) (ge/copy-file-path ?n)))
+	  (let ((str (cond ((eq part ?d)
+						(setq str (file-name-directory file)))
+					   ((eq part ?p)
+						(setq str (expand-file-name file)))
+					   ((eq part ?n)
+						(setq str (file-name-nondirectory file))))))
+		(when (str)
+		  (kill-new (ge/winpath str)))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; COPY TABLE FIELD VALUE ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "C-c v")
-                (lambda ()
-                  (interactive)
-                  (kill-new (->> (org-table-get-field)
+(defun ge/org-copy-table-field-as-kill ()
+  "add current table field value into kill-ring"
+  (interactive)
+  (kill-new (->> (org-table-get-field)
                                  (replace-regexp-in-string "\\`[ \t\n\r]+" "")
-                                 (replace-regexp-in-string "[ \t\n\r]+\\'" "")))))
+                                 (replace-regexp-in-string "[ \t\n\r]+\\'" ""))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; CREATE-BUFFER-HOOK ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-minor-mode ge/create-buffer-mode
@@ -54,7 +46,6 @@
   (let ((sym (symbol-at-point)))
 	(if sym (kill-new (symbol-name sym)))))
 
-(global-set-key (kbd "C-c C-k C-.") 'ge/kill-ring-save-symbol-at-point)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; MOVE/RENAME FILE AND BUFFER ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; From https://sites.google.com/site/steveyegge2/my-dot-emacs-file
@@ -94,18 +85,17 @@
 			  t))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;KILL-CURRENT-BUFFER-AND-WHATEVER;;;;;;;;;;;;;;;;;;;;;;;;
-(defun ge/kill-current-buffer-and-frame ()
+(defun ge/kill-this-buffer-and-frame ()
   "Tries to kill the current buffer, and if succeeds, the frame as well"
   (interactive)
   (if (kill-buffer)
 	  (delete-frame)))
 
-(defun ge/kill-current-buffer-and-window ()
+(defun ge/kill-this-buffer-and-window ()
   "Tries to kill the current buffer, and if succeeds, the window as well"
   (interactive)
   (if (kill-buffer)
 	  (delete-window)))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;INSERT-STRING-REGION-EVERY;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun ge/insert-string-region-every (&optional arg)

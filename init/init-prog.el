@@ -1,8 +1,3 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;; ELISP ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "C-c C-k C-f C-f") 'find-function)
-(global-set-key (kbd "C-c C-k C-f C-.") 'find-function-at-point)
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; CEDET ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cc-mode)
 (require 'semantic)
@@ -102,8 +97,5 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; ECB ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require 'init-ecb)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; MAGIT ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "C-x g") 'magit-status)
 
 (provide 'init-prog)
