@@ -38,7 +38,7 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (global-set-key (kbd "C-M-i") 'helm-company)
 (setq company-idle-delay nil)
-(setq company-backends '((company-dabbrev-code company-capf company-dabbrev) company-gtags company-etags company-keywords company-files))
+(setq company-backends '((company-gtags company-dabbrev-code company-capf company-dabbrev) company-etags company-keywords company-files))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; GDB ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq
