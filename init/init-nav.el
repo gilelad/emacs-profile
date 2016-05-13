@@ -4,6 +4,9 @@
 (global-set-key (kbd "M-S-SPC") 'backward-char)
 (global-set-key (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "<f10>") 'ibuffer)
+(global-set-key (kbd "C-c C-k C-b") 'kill-this-buffer)
+(global-set-key (kbd "C-c C-k C-f") 'ge/kill-current-buffer-and-frame)
+(global-set-key (kbd "C-c C-k C-w") 'ge/kill-current-buffer-and-window)
 
 ;; Don't let org-mode steal our keyboard prefix
 (require 'org)

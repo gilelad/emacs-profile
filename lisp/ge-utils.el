@@ -99,14 +99,12 @@
   (interactive)
   (if (kill-buffer)
 	  (delete-frame)))
-(global-set-key (kbd "C-x 5 k") 'ge/kill-current-buffer-and-frame)
 
 (defun ge/kill-current-buffer-and-window ()
   "Tries to kill the current buffer, and if succeeds, the window as well"
   (interactive)
   (if (kill-buffer)
 	  (delete-window)))
-(global-set-key (kbd "C-c C-k 0") 'ge/kill-current-buffer-and-window)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;INSERT-STRING-REGION-EVERY;;;;;;;;;;;;;;;;;;;;;;;;;;;
