@@ -13,3 +13,6 @@
 [submodule "evil-easymotion"]
 	path = evil-easymotion
 	url = https://github.com/PythonNut/evil-easymotion.git
+[submodule "modules/helm-company"]
+	path = modules/helm-company
+	url = git@github.com:gilelad/helm-company.git

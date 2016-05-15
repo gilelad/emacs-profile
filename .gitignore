@@ -1,6 +1,6 @@
 auto-save-list/
 semanticdb/
-elpa/archives/
+elpa/
 eshell/
 session.*
 .emacs.desktop

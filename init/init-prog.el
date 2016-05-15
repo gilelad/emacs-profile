@@ -24,17 +24,14 @@
 (require 'function-args)
 
 (fa-config-default)
-(define-key c-mode-map  (kbd "<C-tab>") 'moo-complete)
-(define-key c++-mode-map  (kbd "<C-tab>") 'moo-complete)
 (setq-default moo-select-method 'helm)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; COMPANY ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'company)
 (require 'cc-mode)
 (add-hook 'after-init-hook 'global-company-mode)
-(define-key c-mode-map  (kbd "<tab>") 'company-complete)
-(define-key c++-mode-map  (kbd "<tab>") 'company-complete)
-(setq company-backends '(company-semantic company-capf company-dabbrev-code company-gtags company-etags company-keywords company-files company-dabbrev))
+(setq company-idle-delay nil)
+(setq company-backends '((company-gtags company-dabbrev-code company-capf company-dabbrev) company-etags company-keywords company-files))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; GDB ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq
@@ -100,8 +97,5 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; ECB ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require 'init-ecb)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; MAGIT ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "C-x g") 'magit-status)
 
 (provide 'init-prog)
