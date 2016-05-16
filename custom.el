@@ -31,7 +31,21 @@
  '(python-shell-interpreter-args "-i --colors=NoColor")
  '(safe-local-variable-values
    (quote
-	((c-font-lock-extra-types "FILE" "bool" "language" "linebuffer" "fdesc" "node" "regexp")
+	((company-backends quote
+					   (company-gtags company-capf company-dabbrev-code company-etags company-keywords company-files company-dabbrev))
+	 (ede-cpp-root-project
+	  (replace-regexp-in-string "^m:/\\([^/]*\\).*$" "\\1"
+								(file-name-directory
+								 (buffer-file-name)))
+	  :file
+	  (concat
+	   (file-name-directory
+		(buffer-file-name))
+	   "module.conf")
+	  :include-path
+	  (quote
+	   ("/include")))
+	 (c-font-lock-extra-types "FILE" "bool" "language" "linebuffer" "fdesc" "node" "regexp")
 	 (eval setq byte-compile-not-obsolete-vars
 		   (quote
 			(display-buffer-function))))))
@@ -54,8 +68,8 @@
  '(font-lock-string-face ((t (:foreground "cyan"))))
  '(helm-selection ((t (:background "dim gray" :foreground "#242322" :weight bold))))
  '(linum ((t (:height 0.75 :width normal))))
- '(mode-line ((t (:family "FreeSans"))))
- '(mode-line-inactive ((t (:family "FreeSans"))))
+ '(mode-line ((t (:height 100 :family "Hack"))))
+ '(mode-line-inactive ((t (:family "Hack"))))
  '(rainbow-delimiters-depth-1-face ((t (:inherit outline-1 :foreground "RoyalBlue1"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "HotPink1"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "sandy brown"))))
