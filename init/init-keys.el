@@ -25,6 +25,8 @@
 (global-set-key (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
 (org-defkey org-mode-map (kbd "C-c SPC") nil) ;; don't shadow
                                               ;; avy-goto-word-or-subword-1
+(global-set-key (kbd "<C-tab>") 'tabbar-forward)
+(global-set-key (kbd "<C-S-tab>") 'tabbar-backward)
 
 (global-set-key (kbd "<f10>") 'ibuffer)
 
@@ -53,6 +55,7 @@
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
 (define-key helm-gtags-mode-map (kbd "C-c g r") 'helm-gtags-find-rtag)
 (define-key helm-gtags-mode-map (kbd "C-c g s") 'helm-gtags-find-symbol)
+(define-key helm-gtags-mode-map (kbd "C-c g u") 'helm-gtags-update-tags)
 (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
 (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
 (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
