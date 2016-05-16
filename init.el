@@ -1,5 +1,9 @@
     ;;; init.el --- user init file      -*- no-byte-compile: t -*-
 
+; In case of emergency, point to correct address and uncomment
+;(setenv "HTTP_PROXY" "http://my.proxy.server:8080")
+;(setenv "HTTPS_PROXY" "http://my.proxy.server:8080")
+
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file)
 ;;--------------------------------------------------------
