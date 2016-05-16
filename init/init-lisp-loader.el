@@ -67,6 +67,7 @@
 						spacemacs-theme
 						stickyfunc-enhance
 						swiper
+						tabbar
 						undo-tree
 						with-editor
 						ws-butler

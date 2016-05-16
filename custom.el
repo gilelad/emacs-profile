@@ -37,6 +37,7 @@
 			(display-buffer-function))))))
  '(show-paren-mode t)
  '(tab-width 4)
+ '(tabbar-cycle-scope (quote tabs))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
