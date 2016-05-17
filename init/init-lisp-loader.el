@@ -39,6 +39,7 @@
 						golden-ratio
 						haskell-mode
 						helm
+						helm-c-yasnippet
 						helm-ag
 						helm-descbinds
 						helm-ghc

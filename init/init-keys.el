@@ -48,6 +48,7 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-c h k") 'helm-descbinds)
+(global-set-key (kbd "C-c h y") 'helm-yas-complete)
 
 ;;;;;;;; HELM-GTAGS ;;;;;;;;
 (require 'helm-gtags)
