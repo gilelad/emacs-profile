@@ -21,7 +21,6 @@
  '(ecb-options-version "2.40")
  '(fci-rule-color "RoyalBlue4")
  '(fill-column 80)
- '(frame-background-mode (quote dark))
  '(global-company-mode t)
  '(inhibit-startup-screen t)
  '(line-number-mode t)

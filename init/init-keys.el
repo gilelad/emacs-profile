@@ -87,5 +87,9 @@
 
 (global-set-key (kbd "C-c k t f") 'ge/org-copy-table-field-as-kill)
 (global-set-key (kbd "C-c k s .") 'ge/kill-ring-save-symbol-at-point)
+(define-key evil-emacs-state-map (kbd "M-n") 'evil-normal-state)
+(define-key evil-insert-state-map (kbd "M-n") 'evil-normal-state)
+(define-key evil-replace-state-map (kbd "M-n") 'evil-normal-state)
+(define-key evil-visual-state-map (kbd "M-n") 'evil-normal-state)
 
 (provide 'init-keys)

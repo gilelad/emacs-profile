@@ -59,7 +59,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; ELPY ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (elpy-enable)
-(elpy-use-ipython "ipython3")
+(when (executable-find "ipython3")
+  (elpy-use-ipython "ipython3"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; JS2-MODE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
