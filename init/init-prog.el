@@ -96,6 +96,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; RAINBOW DELIMITERS ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;; TAGS ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'ggtags)
+(add-hook 'prog-mode-hook 'ggtags-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; SNIPPETS ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; ECB ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require 'init-ecb)
 
