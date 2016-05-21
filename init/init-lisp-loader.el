@@ -54,6 +54,7 @@
 						json-reformat
 						json-snatcher
 						magit
+						nlinum
 						open-junk-file
 						packed
 						pkg-info

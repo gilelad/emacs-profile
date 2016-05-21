@@ -1,5 +1,4 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MISC VISUALS;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq linum-delay t)
 (load-theme 'spacemacs-dark)
 (global-hl-line-mode)
 (setq-default vertical-scroll-bar nil)
