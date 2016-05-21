@@ -3,6 +3,7 @@ semanticdb/
 elpa/
 eshell/
 mylocal/
+tramp
 session.*
 .emacs.desktop
 .emacs.desktop.lock
