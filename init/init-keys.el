@@ -7,9 +7,13 @@
 (global-set-key (kbd "C-c k f f") 'find-function)
 (global-set-key (kbd "C-c k f .") 'find-function-at-point)
 
+(global-set-key (kbd "C-c k h r") 'evil-search-highlight-persist-remove-all)
+
 (global-set-key (kbd "C-c k k b") (lambda () (interactive) (kill-buffer (current-buffer))))
 (global-set-key (kbd "C-c k k f") 'ge/kill-this-buffer-and-frame)
 (global-set-key (kbd "C-c k k w") 'ge/kill-this-buffer-and-window)
+
+(global-set-key (kbd "C-c k . k") 'ge/kill-ring-save-symbol-at-point)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; WINDMOVE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -65,6 +69,9 @@
 
 ;;;;;;; HELM-COMPANY ;;;;;;;
 (when (functionp 'helm-company)
+  (define-key lisp-interaction-mode-map (kbd "C-M-i") nil) ; don't shadow
+  (define-key emacs-lisp-mode-map (kbd "C-M-i") nil)       ; don't shadow
+  (global-set-key (kbd "C-M-i") 'helm-company)
   (eval-after-load 'company
   '(progn
      (define-key company-mode-map (kbd "C-:") 'helm-company)
@@ -83,13 +90,15 @@
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 (define-key evil-normal-state-map (kbd "M-.") nil)  ;; don't shadow
 										            ;;"helm-gtags-dwim"
-(global-set-key (kbd "C-c k h r") 'evil-search-highlight-persist-remove-all)
-
-(global-set-key (kbd "C-c k t f") 'ge/org-copy-table-field-as-kill)
-(global-set-key (kbd "C-c k s .") 'ge/kill-ring-save-symbol-at-point)
 (define-key evil-emacs-state-map (kbd "M-n") 'evil-normal-state)
 (define-key evil-insert-state-map (kbd "M-n") 'evil-normal-state)
 (define-key evil-replace-state-map (kbd "M-n") 'evil-normal-state)
 (define-key evil-visual-state-map (kbd "M-n") 'evil-normal-state)
+
+;;;;;;; SWIPER ;;;;;;;;
+(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "M-s .") (lambda ()
+								(interactive)
+								(swiper (symbol-name (symbol-at-point)))))
 
 (provide 'init-keys)
