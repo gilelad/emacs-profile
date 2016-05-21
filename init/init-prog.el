@@ -101,6 +101,9 @@
 (add-hook 'prog-mode-hook 'ggtags-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; SNIPPETS ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'yasnippet)
+(add-hook 'prog-mode-hook 'yas-minor-mode-on)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; ECB ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require 'init-ecb)
 
