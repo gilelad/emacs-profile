@@ -1,12 +1,21 @@
 (require 'org)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;; PATHS ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "C-c k p d") (lambda () (interactive) (ge/copy-file-path ?d)))
 (global-set-key (kbd "C-c k p p") (lambda () (interactive) (ge/copy-file-path ?p)))
 (global-set-key (kbd "C-c k p n") (lambda () (interactive) (ge/copy-file-path ?n)))
 
 (global-set-key (kbd "C-c k f f") 'find-function)
-(global-set-key (kbd "C-c k f .") 'find-function-at-point)
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; JUST POINTY THINGS ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "C-c k . k") 'ge/kill-ring-save-symbol-at-point)
+(global-set-key (kbd "C-c k . s") (lambda ()
+									(interactive)
+									(swiper (symbol-name (symbol-at-point)))))
+(global-set-key (kbd "C-c k . f") 'find-function-at-point)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; KILL BUFFER/WINDOW/FRAME ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "C-c k k b") (lambda () (interactive) (kill-buffer (current-buffer))))
 (global-set-key (kbd "C-c k k f") 'ge/kill-this-buffer-and-frame)
 (global-set-key (kbd "C-c k k w") 'ge/kill-this-buffer-and-window)
@@ -86,6 +95,5 @@
 (global-set-key (kbd "C-c k h r") 'evil-search-highlight-persist-remove-all)
 
 (global-set-key (kbd "C-c k t f") 'ge/org-copy-table-field-as-kill)
-(global-set-key (kbd "C-c k s .") 'ge/kill-ring-save-symbol-at-point)
 
 (provide 'init-keys)
