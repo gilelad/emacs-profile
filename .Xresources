@@ -1,0 +1,12 @@
+XTerm*altIsNotMeta:        true
+XTerm*metaSendsEscape:     true
+XTerm*altSendsEscape:      true
+XTerm*eightBitInput:       false
+XTerm*faceName:            Hack
+XTerm*faceSize:            11.0
+XTerm*termName:            xterm-256color
+XTerm*maximized:           true
+XTerm*ttyModes:            erase ^?
+XTerm*borderWidth:         0
+XTerm*intermalBorder:      0
+XTerm*scrollbarBorder:     0
