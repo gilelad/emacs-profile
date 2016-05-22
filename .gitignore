@@ -2,6 +2,8 @@ auto-save-list/
 semanticdb/
 elpa/
 eshell/
+mylocal/
+tramp
 session.*
 .emacs.desktop
 .emacs.desktop.lock
@@ -17,5 +19,3 @@ server/
 **/\#*
 **/.\#*
 **/*~
-mylocal/gnuglobal/
-mylocal/vc-clearcase/
