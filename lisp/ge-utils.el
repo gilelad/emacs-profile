@@ -18,8 +18,8 @@
 						(setq str (expand-file-name file)))
 					   ((eq part ?n)
 						(setq str (file-name-nondirectory file))))))
-		(when (str)
-		  (kill-new (ge/winpath str)))))))
+		(when str)
+		  (kill-new (ge/winpath str))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; COPY TABLE FIELD VALUE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun ge/org-copy-table-field-as-kill ()
