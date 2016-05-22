@@ -59,7 +59,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; ELPY ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (elpy-enable)
-(elpy-use-ipython "ipython3")
+(when (executable-find "ipython3")
+  (elpy-use-ipython "ipython3"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; JS2-MODE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -90,10 +91,18 @@
 (add-hook 'prog-mode-hook 'fci-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; LINE-NUMBERS ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'prog-mode-hook 'nlinum-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; RAINBOW DELIMITERS ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; TAGS ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'ggtags)
+(add-hook 'prog-mode-hook 'ggtags-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;; SNIPPETS ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'yasnippet)
+(add-hook 'prog-mode-hook 'yas-minor-mode-on)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; ECB ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require 'init-ecb)
