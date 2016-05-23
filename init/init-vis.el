@@ -18,14 +18,14 @@
       airline-utf-glyph-linenumber          #xe0a1)
 
 (load-theme 'airline-kolor)
-;; (unless (display-graphic-p)
-;;   (require 'evil-terminal-cursor-changer))
+(unless (display-graphic-p)
+  (require 'evil-terminal-cursor-changer))
 ;; Must have these after loading themes
-(setq evil-emacs-state-cursor '("color-69" bar)
-      evil-normal-state-cursor '("color-61" box)
-      evil-visual-state-cursor '("yellow" box)
+(setq evil-emacs-state-cursor '("#5f87ff" bar)
+      evil-normal-state-cursor '("#5f5faf" box)
+      evil-visual-state-cursor '("#af5f00" box)
       evil-insert-state-cursor evil-emacs-state-cursor
-      evil-replace-state-cursor '("red" hbar)
-      evil-operator-state-cursor '("red" hollow))
+      evil-replace-state-cursor '("#cdcd00" hbar)
+      evil-operator-state-cursor '("#cecd00" hollow))
 
 (provide 'init-vis)
