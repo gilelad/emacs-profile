@@ -63,10 +63,18 @@
 (global-set-key (kbd "C-c h k") 'helm-descbinds)
 (global-set-key (kbd "C-c h y") 'helm-yas-complete)
 
-;;;;;;;; GGTAGS ;;;;;;;;
-(require 'ggtags)
-(define-key ggtags-mode-map (kbd "C-c g u") 'ggtags-update-tags)
-(define-key ggtags-mode-map (kbd "M-,") 'ggtags-prev-mark)
+;;;;;;;; HELM-GTAGS ;;;;;;;;
+(require 'helm-gtags)
+(setq helm-gtags-prefix-key (kbd "C-c g"))
+(define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
+(define-key helm-gtags-mode-map (kbd "C-c g r") 'helm-gtags-find-rtag)
+(define-key helm-gtags-mode-map (kbd "C-c g s") 'helm-gtags-find-symbol)
+(define-key helm-gtags-mode-map (kbd "C-c g u") 'helm-gtags-update-tags)
+(define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
+(define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+(define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+(define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+(define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
 
 ;;;;;;; HELM-COMPANY ;;;;;;;
 (when (functionp 'helm-company)
