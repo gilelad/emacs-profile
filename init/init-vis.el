@@ -18,8 +18,8 @@
       airline-utf-glyph-linenumber          #xe0a1)
 
 (load-theme 'airline-kolor)
-(unless (display-graphic-p)
-  (require 'evil-terminal-cursor-changer))
+;; (unless (display-graphic-p)
+;;   (require 'evil-terminal-cursor-changer))
 ;; Must have these after loading themes
 (setq evil-emacs-state-cursor '("#5f87ff" bar)
       evil-normal-state-cursor '("#5f5faf" box)
