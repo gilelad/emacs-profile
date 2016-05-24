@@ -33,7 +33,6 @@
 						find-file-in-project
 						fill-column-indicator
 						function-args
-						ggtags
 						ghc
 						ghci-completion
 						git-commit
@@ -44,6 +43,7 @@
 						helm-ag
 						helm-descbinds
 						helm-ghc
+						helm-gtags
 						helm-projectile
 						hi2
 						highlight

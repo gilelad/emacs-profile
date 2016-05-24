@@ -21,7 +21,21 @@
 (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
 
 ;;;;;;;; HELM-GTAGS ;;;;;;;;
+(require 'helm-gtags)
 (require 'cc-mode)
+
+(add-hook 'dired-mode-hook 'helm-gtags-mode)
+(add-hook 'eshell-mode-hook 'helm-gtags-mode)
+(add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c++-mode-hook 'helm-gtags-mode)
+(add-hook 'asm-mode-hook 'helm-gtags-mode)
+
+(setq       helm-gtags-ignore-case t
+            helm-gtags-auto-update t
+            helm-gtags-use-input-at-cursor t
+            helm-gtags-pulse-at-cursor t
+            helm-gtags-fuzzy-match t
+            helm-gtags-suggested-key-mapping t)
 
 ;;;;;;;; HELM-COMPANY ;;;;;;;;
 (when (ge/add-submodule-to-loadpath "helm-company")
