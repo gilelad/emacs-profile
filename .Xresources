@@ -10,6 +10,7 @@ XTerm*ttyModes:            erase ^?
 XTerm*borderWidth:         0
 XTerm*intermalBorder:      0
 XTerm*scrollbarBorder:     0
+XTerm*reverseVideo:        true
 XTerm*VT100.Translations:       #override\n\
 <KeyPress> BackSpace : string(0x7f)\n\
 <KeyPress> Delete : string(0x08)\n
