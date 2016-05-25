@@ -100,6 +100,11 @@
 (require 'yasnippet)
 (add-hook 'prog-mode-hook 'yas-minor-mode-on)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;; COMPILATION HOOKS ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'compilation-start-hook (lambda (&rest args)
+									(interactive)
+									(goto-char (point-max))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; ECB ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require 'init-ecb)
 
