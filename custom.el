@@ -48,6 +48,7 @@
 	 (eval setq byte-compile-not-obsolete-vars
 		   (quote
 			(display-buffer-function))))))
+ '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tab-width 4)
  '(tabbar-cycle-scope (quote tabs))
