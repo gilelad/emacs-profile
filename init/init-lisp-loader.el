@@ -73,6 +73,7 @@
 						undo-tree
 						with-editor
 						ws-butler
+						xcscope
 						yasnippet
 ;;=============== END OF REQUIRED PACKAGES ==============
 						))

@@ -108,4 +108,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; ECB ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require 'init-ecb)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;; CSCOPE ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'xcscope)
+(add-hook 'c-mode-common-hook 'cscope-minor-mode)
+
 (provide 'init-prog)
