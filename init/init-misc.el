@@ -21,4 +21,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; AUTO-REVERT ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-auto-revert-mode)
 
+(tabbar-mode)
+
 (provide 'init-misc)
