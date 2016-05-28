@@ -20,6 +20,7 @@
  '(default-frame-alist (quote ((fullscreen . maximized))))
  '(desktop-save-mode t)
  '(ecb-options-version "2.40")
+ '(echo-keystrokes 0.1)
  '(fci-rule-color "RoyalBlue4")
  '(fill-column 80)
  '(global-company-mode t)
