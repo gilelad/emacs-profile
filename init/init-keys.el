@@ -59,6 +59,7 @@
 (global-set-key (kbd "<C-S-tab>") #'tabbar-backward)
 (global-set-key (kbd "<backtab>") #'tabbar-backward)
 (global-set-key (kbd "C-<f10>") #'tabbar-local-mode)
+(global-set-key (kbd "C-c <f10>") #'tabbar-local-mode)
 
 (global-set-key (kbd "<f10>") #'ibuffer)
 
