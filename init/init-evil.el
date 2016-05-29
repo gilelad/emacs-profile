@@ -29,6 +29,6 @@
            (not (string-match "^ " (buffer-name))))
       (evil-local-mode t)
     nil))
- (add-hook 'ge/create-buffer-mode-hook #'ge/auto-evil-local)
+(add-hook 'ge/create-buffer-mode-hook #'ge/auto-evil-local)
 
 (provide 'init-evil)
