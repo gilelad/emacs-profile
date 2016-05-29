@@ -24,11 +24,11 @@
 (require 'helm-gtags)
 (require 'cc-mode)
 
-(add-hook 'dired-mode-hook 'helm-gtags-mode)
-(add-hook 'eshell-mode-hook 'helm-gtags-mode)
-(add-hook 'c-mode-hook 'helm-gtags-mode)
-(add-hook 'c++-mode-hook 'helm-gtags-mode)
-(add-hook 'asm-mode-hook 'helm-gtags-mode)
+(add-hook 'dired-mode-hook #'helm-gtags-mode)
+(add-hook 'eshell-mode-hook #'helm-gtags-mode)
+(add-hook 'c-mode-hook #'helm-gtags-mode)
+(add-hook 'c++-mode-hook #'helm-gtags-mode)
+(add-hook 'asm-mode-hook #'helm-gtags-mode)
 
 (setq       helm-gtags-ignore-case t
             helm-gtags-auto-update t
