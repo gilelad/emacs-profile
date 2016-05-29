@@ -1,46 +1,66 @@
-(require 'org)
+(define-prefix-command 'ge/private-map)
+(global-set-key (kbd "C-c k") #'ge/private-map)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;; PATHS ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "C-c k p d") (lambda () (interactive) (ge/copy-file-path ?d)))
-(global-set-key (kbd "C-c k p p") (lambda () (interactive) (ge/copy-file-path ?p)))
-(global-set-key (kbd "C-c k p n") (lambda () (interactive) (ge/copy-file-path ?n)))
+(define-key ge/private-map (kbd "p d") (lambda () (interactive) (ge/copy-file-path ?d)))
+(define-key ge/private-map (kbd "p p") (lambda () (interactive) (ge/copy-file-path ?p)))
+(define-key ge/private-map (kbd "p n") (lambda () (interactive) (ge/copy-file-path ?n)))
 
-(global-set-key (kbd "C-c k f f") #'find-function)
-(global-set-key (kbd "C-c k f .") #'find-function-at-point)
+(define-key ge/private-map (kbd "f f") #'find-function)
+(define-key ge/private-map (kbd "f .") #'find-function-at-point)
 
-(global-set-key (kbd "C-c k h r") #'evil-search-highlight-persist-remove-all)
+(define-key ge/private-map (kbd "h r") #'evil-search-highlight-persist-remove-all)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;; KILL BUFFER/WINDOW/FRAME ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define-key ge/private-map (kbd "k b") (lambda () (interactive) (kill-buffer (current-buffer))))
+(define-key ge/private-map (kbd "k f") #'ge/kill-this-buffer-and-frame)
+(define-key ge/private-map (kbd "k w") #'ge/kill-this-buffer-and-window)
 
-(global-set-key (kbd "C-c k k b") (lambda () (interactive) (kill-buffer (current-buffer))))
-(global-set-key (kbd "C-c k k f") #'ge/kill-this-buffer-and-frame)
-(global-set-key (kbd "C-c k k w") #'ge/kill-this-buffer-and-window)
-
-(global-set-key (kbd "C-c k . k") #'ge/kill-ring-save-symbol-at-point)
+(define-key ge/private-map (kbd ". k") #'ge/kill-ring-save-symbol-at-point)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; WINDMOVE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(global-set-key (kbd "C-c k w h") (ge/ignore-error-wrapper 'windmove-left))
-(global-set-key (kbd "C-c k w l") (ge/ignore-error-wrapper 'windmove-right))
-(global-set-key (kbd "C-c k w k") (ge/ignore-error-wrapper 'windmove-up))
-(global-set-key (kbd "C-c k w j") (ge/ignore-error-wrapper 'windmove-down))
+(define-key ge/private-map (kbd "w h") (ge/ignore-error-wrapper #'windmove-left))
+(define-key ge/private-map (kbd "w l") (ge/ignore-error-wrapper #'windmove-right))
+(define-key ge/private-map (kbd "w k") (ge/ignore-error-wrapper #'windmove-up))
+(define-key ge/private-map (kbd "w j") (ge/ignore-error-wrapper #'windmove-down))
+
+(require 'open-junk-file)
+(require 'magit)
+(define-key ge/private-map (kbd "o g") #'magit-status)
+(define-key ge/private-map (kbd "o j") #'open-junk-file)
+
+;;;;;;; TOGGLES ;;;;;;;;
+;; Adapted from http://endlessparentheses.com/the-toggle-map-and-wizardry.html
+(define-prefix-command 'ge/toggle-map)
+(define-key ge/private-map "t" #'ge/toggle-map)
+(define-key ge/toggle-map "c" #'column-number-mode)
+(define-key ge/toggle-map "d" #'toggle-debug-on-error)
+(define-key ge/toggle-map "e" #'toggle-debug-on-error)
+(define-key ge/toggle-map "f" #'auto-fill-mode)
+(define-key ge/toggle-map "l" #'toggle-truncate-lines)
+(define-key ge/toggle-map "n" #'ge/narrow-or-widen-dwim)
+(define-key ge/toggle-map "q" #'toggle-debug-on-quit)
+(define-key ge/toggle-map "t" #'ge/toggle-theme)
+;;; Generalized version of `read-only-mode'.
+(define-key ge/toggle-map "r" #'dired-toggle-read-only)
+(autoload 'dired-toggle-read-only "dired" nil t)
+(define-key ge/toggle-map "w" #'whitespace-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; Easy navigation ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "RET") #'newline-and-indent)
 (global-set-key (kbd "S-SPC") #'forward-char)
 (global-set-key (kbd "M-S-SPC") #'backward-char)
 (global-set-key (kbd "C-c SPC") #'avy-goto-word-or-subword-1)
+
+(require 'org)
 (org-defkey org-mode-map (kbd "C-c SPC") nil) ;; don't shadow
                                               ;; avy-goto-word-or-subword-1
+
 (global-set-key (kbd "<C-tab>") #'tabbar-forward)
 (global-set-key (kbd "<C-S-tab>") #'tabbar-backward)
+(global-set-key (kbd "<backtab>") #'tabbar-backward)
+(global-set-key (kbd "C-<f10>") #'tabbar-local-mode)
 
 (global-set-key (kbd "<f10>") #'ibuffer)
-
-(require 'open-junk-file)
-(require 'magit)
-(global-set-key (kbd "C-c k o g") #'magit-status)
-(global-set-key (kbd "C-c k o j") #'open-junk-file)
 
 ;;;;;;;; HELM ;;;;;;;;;;;;;;
 (require 'helm-config)
@@ -81,7 +101,7 @@
      (define-key company-active-map (kbd "C-:") #'helm-company))))
 
 ;;;;;;; ECB ;;;;;;;;;
-(when (functionp 'ge/ecb-toggle)
+(when (fboundp 'ge/ecb-toggle)
   (global-set-key (kbd "<f6>") #'ge/ecb-toggle))
 
 ;;;;;;; EVIL ;;;;;;;;
