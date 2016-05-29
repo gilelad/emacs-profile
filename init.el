@@ -11,20 +11,25 @@
 (add-to-list 'load-path (concat user-emacs-directory "init")) ;; init scripts for 3rd party packages
 (add-to-list 'load-path (concat user-emacs-directory "lisp")) ;; my own lisp extensions
 
-(require 'init-lisp-loader)
+(defun ge/require (name)
+  "require wrapper with 'done' message"
+  (message "loading %s ... " name)
+  (require name))
 
-(require 'ge-utils)
-(require 'init-evil)
-(require 'init-helm)
-(require 'init-helm-projectile)
-(require 'init-repls)
-(require 'init-prog)
-(require 'init-nav)
-(require 'init-vis)
-(require 'init-misc)
-(require 'init-keys)
+(ge/require 'init-lisp-loader)
+
+(ge/require 'ge-utils)
+(ge/require 'init-evil)
+(ge/require 'init-helm)
+(ge/require 'init-helm-projectile)
+(ge/require 'init-repls)
+(ge/require 'init-prog)
+(ge/require 'init-nav)
+(ge/require 'init-vis)
+(ge/require 'init-misc)
+(ge/require 'init-keys)
 
 ;; site-specific initializations - ignored by git
 (when (file-directory-p (concat user-emacs-directory "mylocal"))
   (add-to-list 'load-path (concat user-emacs-directory "mylocal"))
-  (require 'init-mylocal nil t))
+  (ge/require 'init-mylocal nil t))

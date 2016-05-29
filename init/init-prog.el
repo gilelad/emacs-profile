@@ -3,6 +3,7 @@
 (require 'semantic)
 (require 'semantic/db)
 (require 'semantic/db-global)
+(require 'semantic/bovine/c)
 
 (set-default 'semantic-case-fold t)
 (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
@@ -29,18 +30,19 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; COMPANY ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'company)
 (require 'cc-mode)
-(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook #'global-company-mode)
 (setq company-idle-delay nil)
 (setq company-backends '((company-gtags company-dabbrev-code company-capf company-dabbrev) company-etags company-keywords company-files))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; GDB ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'gdb-mi)
 (setq
  gdb-many-windows t ;; use gdb-many-windows by default
  gdb-show-main t ;; Non-nil means display source file containing the main routine at startup
  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; HIDESHOW ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'c-mode-common-hook 'hs-minor-mode)
+(add-hook 'c-mode-common-hook #'hs-minor-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; TERN ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (when (file-exists-p "~/.emacs.d/modules/tern/tern.el")
@@ -58,9 +60,8 @@
 (autopair-global-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; ELPY ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'elpy)
 (elpy-enable)
-(when (executable-find "ipython3")
-  (elpy-use-ipython "ipython3"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; JS2-MODE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -79,26 +80,25 @@
 
 (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python 'ruby 'nxml)
 
-(add-hook 'c-mode-hook (lambda ()
-                         (setq tab-width c-basic-offset)))
+(add-hook 'c-mode-hook (lambda () (setq tab-width c-basic-offset)))
 
 (add-hook 'python-mode-hook (lambda () (setq tab-width 4)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; FILL-COLUMN ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(add-hook 'prog-mode-hook 'auto-fill-mode)
+(add-hook 'prog-mode-hook #'auto-fill-mode)
 (require 'fill-column-indicator)
-(add-hook 'prog-mode-hook 'fci-mode)
+(add-hook 'prog-mode-hook #'fci-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; LINE-NUMBERS ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'prog-mode-hook 'nlinum-mode)
+(add-hook 'prog-mode-hook #'nlinum-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; RAINBOW DELIMITERS ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; SNIPPETS ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'yasnippet)
-(add-hook 'prog-mode-hook 'yas-minor-mode-on)
+(add-hook 'prog-mode-hook #'yas-minor-mode-on)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; COMPILATION HOOKS ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'compilation-start-hook (lambda (&rest args)
@@ -110,6 +110,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; CSCOPE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'xcscope)
-(add-hook 'c-mode-common-hook 'cscope-minor-mode)
+(add-hook 'c-mode-common-hook #'cscope-minor-mode)
 
 (provide 'init-prog)
