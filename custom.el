@@ -54,6 +54,7 @@
  '(show-paren-mode t)
  '(tab-width 4)
  '(tabbar-cycle-scope (quote tabs))
+ '(tabbar-separator (quote ("|")))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -82,6 +83,11 @@
  '(rainbow-delimiters-depth-8-face ((t (:foreground "slate blue"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "magenta2"))))
  '(show-paren-match ((t (:inverse-video t :weight bold))))
+ '(tabbar-default ((t (:inherit variable-pitch :foreground "#00af00" :height 0.8))))
+ '(tabbar-modified ((t (:inherit tabbar-default :foreground "#5f0000" :box (:line-width 1 :color "white" :style released-button)))))
+ '(tabbar-selected ((t (:inherit tabbar-default :foreground "#00ff87" :box (:line-width 1 :color "white" :style pressed-button) :weight bold))))
+ '(tabbar-selected-modified ((t (:inherit tabbar-default :foreground "red" :box (:line-width 1 :color "white" :style released-button) :weight bold))))
+ '(tabbar-separator ((t (:inherit tabbar-default :foreground "white"))))
  '(whitespace-tab ((t (:foreground "#839496")))))
 ;; -----------End of Customize settings--------------
 
