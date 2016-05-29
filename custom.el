@@ -51,6 +51,7 @@
 		   (quote
 			(display-buffer-function))))))
  '(scroll-bar-mode nil)
+ '(server-name "gile")
  '(show-paren-mode t)
  '(tab-width 4)
  '(tabbar-cycle-scope (quote tabs))
