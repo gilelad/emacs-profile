@@ -66,6 +66,7 @@
 (global-set-key (kbd "C-<f10>") #'tabbar-local-mode)
 (global-set-key (kbd "C-c <f10>") #'tabbar-local-mode)
 
+(require 'ibuffer)
 (global-set-key (kbd "<f10>") #'ibuffer)
 
 ;;;;;;;; HELM ;;;;;;;;;;;;;;
