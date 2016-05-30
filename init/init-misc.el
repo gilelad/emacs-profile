@@ -16,5 +16,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; AUTO-REVERT ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-auto-revert-mode)
 
+(require 'magit)
+(remove-hook 'after-init-hook #' magit-startup-asserts)
 
 (provide 'init-misc)
