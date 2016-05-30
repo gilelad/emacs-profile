@@ -16,6 +16,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; AUTO-REVERT ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-auto-revert-mode)
 
-(tabbar-mode)
+(require 'magit)
+(remove-hook 'after-init-hook #' magit-startup-asserts)
 
 (provide 'init-misc)

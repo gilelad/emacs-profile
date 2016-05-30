@@ -55,11 +55,17 @@
 (org-defkey org-mode-map (kbd "C-c SPC") nil) ;; don't shadow
                                               ;; avy-goto-word-or-subword-1
 
+(require 'tabbar)
 (global-set-key (kbd "<C-tab>") #'tabbar-forward)
+(global-set-key (kbd "ESC <right>") #'tabbar-forward)
 (global-set-key (kbd "<C-S-tab>") #'tabbar-backward)
+(global-set-key (kbd "ESC <left>") #'tabbar-backward)
 (global-set-key (kbd "<backtab>") #'tabbar-backward)
+(global-set-key (kbd "C-c <up>") #'tabbar-backward-group)
+(global-set-key (kbd "C-c <down>") #'tabbar-forward-group)
 (global-set-key (kbd "C-<f10>") #'tabbar-local-mode)
 
+(require 'ibuffer)
 (global-set-key (kbd "<f10>") #'ibuffer)
 
 ;;;;;;;; HELM ;;;;;;;;;;;;;;

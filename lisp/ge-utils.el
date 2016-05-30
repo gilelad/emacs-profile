@@ -162,6 +162,7 @@ default for 'i' is fill-column"
 	(when (file-directory-p dir)
 		(add-to-list 'load-path dir))))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; ADAPTIVE NARROWING ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun ge/narrow-or-widen-dwim (p)
   "Widen if buffer is narrowed, narrow-dwim otherwise.
 Dwim means: region, org-src-block, org-subtree, or
@@ -188,5 +189,46 @@ Adapted from http://endlessparentheses.com/emacs-narrow-or-widen-dwim.html"
 		((derived-mode-p 'latex-mode)
 		 (LaTeX-narrow-to-environment))
 		(t (narrow-to-defun))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; AUTOHIDE TABBAR ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'tabbar)
+(funcall (lambda ()
+		   "Make tabbar briefly show itself while you are switching buffers with
+            shortcuts.
+            Borrowed from https://www.emacswiki.org/emacs/TabBarMode#toc15.
+            Adapted to using `advice' for the wrapper, and `tabbar-local-mode'
+            to force tabbar visibility above other header lines."
+
+		   (interactive)
+		   (tabbar-mode 0)
+		   (defvar ge/tabbar-autohide-timer nil)
+		   (defun ge/renew-tabbar-autohide-timer ()
+			 (if (timerp ge/tabbar-autohide-timer)
+				 (cancel-timer ge/tabbar-autohide-timer))
+			 (setf ge/tabbar-autohide-timer
+				   (run-with-timer
+					2 nil (lambda ()
+							(tabbar-mode 0)
+							(setf ge/tabbar-autohide-timer nil)))))
+
+		   (defun ge/tabbar-local-if-invisible ()
+			 (interactive)
+			 (when (and (tabbar-mode-on-p)
+						(boundp 'tabbar-header-line-format)
+						(not (eq header-line-format tabbar-header-line-format)))
+			   (tabbar-local-mode 1)))
+
+		   (defun ge/tabbar-autohide-wrapper (f &rest args)
+			 (if tabbar-mode
+				 (apply f args)
+			   (tabbar-mode t))
+			 (ge/tabbar-local-if-invisible)
+			 (ge/renew-tabbar-autohide-timer))
+
+		   (advice-add #'tabbar-forward :around #'ge/tabbar-autohide-wrapper)
+		   (advice-add #'tabbar-backward :around #'ge/tabbar-autohide-wrapper)
+		   (advice-add #'tabbar-forward-group :around #'ge/tabbar-autohide-wrapper)
+		   (advice-add #'tabbar-backward-group :around #'ge/tabbar-autohide-wrapper)))
+
 
 (provide 'ge-utils)
