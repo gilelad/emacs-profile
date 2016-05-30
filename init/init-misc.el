@@ -3,11 +3,6 @@
 (unless (server-running-p)
   (server-start))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;PERFORMANCE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Default value of 800000 means frequent small freezes.
-;; 100000000 is the value used by spacemacs
-(setq gc-cons-threshold 100000000)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; UNDO TREE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-undo-tree-mode)
 
