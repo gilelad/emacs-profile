@@ -162,6 +162,7 @@ default for 'i' is fill-column"
 	(when (file-directory-p dir)
 		(add-to-list 'load-path dir))))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; ADAPTIVE NARROWING ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun ge/narrow-or-widen-dwim (p)
   "Widen if buffer is narrowed, narrow-dwim otherwise.
 Dwim means: region, org-src-block, org-subtree, or
