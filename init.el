@@ -1,4 +1,6 @@
     ;;; init.el --- user init file      -*- no-byte-compile: t -*-
+(setq gc-cons-threshold 100000000)
+(let ((file-name-handler-alist nil))     ; avoid regexp matching during startup
 
 (let ((file-name-handler-alist nil)     ; avoid regexp matching during startup
       (gc-cons-threshold 100000000))    ; avoid GC during startup
