@@ -1,9 +1,7 @@
     ;;; init.el --- user init file      -*- no-byte-compile: t -*-
 (setq gc-cons-threshold 100000000)
-(let ((file-name-handler-alist nil))     ; avoid regexp matching during startup
 
-(let ((file-name-handler-alist nil)     ; avoid regexp matching during startup
-      (gc-cons-threshold 100000000))    ; avoid GC during startup
+(let ((file-name-handler-alist nil))     ; avoid regexp matching during startup
 
   (setenv "HTTP_PROXY" "http://proxy71.checkpoint.com:8080")
   (setenv "HTTPS_PROXY" "http://proxy71.checkpoint.com:8080")
