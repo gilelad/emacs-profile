@@ -2,11 +2,8 @@
 (setq gc-cons-threshold 100000000)
 (let ((file-name-handler-alist nil))     ; avoid regexp matching during startup
 
-(let ((file-name-handler-alist nil)     ; avoid regexp matching during startup
-      (gc-cons-threshold 100000000))    ; avoid GC during startup
-
-  (setenv "HTTP_PROXY" "http://proxy51.checkpoint.com:8080")
-  (setenv "HTTPS_PROXY" "http://proxy51.checkpoint.com:8080")
+  (setenv "HTTP_PROXY" "http://proxy76.checkpoint.com:8080")
+  (setenv "HTTPS_PROXY" "http://proxy76.checkpoint.com:8080")
 
   (setq custom-file (concat user-emacs-directory "custom.el"))
   (load custom-file)
