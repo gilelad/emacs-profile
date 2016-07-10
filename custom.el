@@ -21,7 +21,7 @@
  '(desktop-save-mode t)
  '(ecb-options-version "2.40")
  '(echo-keystrokes 0.1)
- '(fci-rule-color "RoyalBlue4")
+ '(fci-rule-color "#27408b")
  '(fill-column 80)
  '(global-company-mode t)
  '(inhibit-startup-screen t)
