@@ -92,6 +92,7 @@
 (define-key helm-gtags-mode-map (kbd "C-c g a") #'helm-gtags-tags-in-this-function)
 (define-key helm-gtags-mode-map (kbd "C-c g r") #'helm-gtags-find-rtag)
 (define-key helm-gtags-mode-map (kbd "C-c g s") #'helm-gtags-find-symbol)
+(define-key helm-gtags-mode-map (kbd "C-c g t") #'helm-gtags-show-stack)
 (define-key helm-gtags-mode-map (kbd "C-c g u") #'helm-gtags-update-tags)
 (define-key helm-gtags-mode-map (kbd "C-j") #'helm-gtags-select)
 (define-key helm-gtags-mode-map (kbd "M-.") #'helm-gtags-dwim)
