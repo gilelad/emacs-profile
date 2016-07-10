@@ -33,7 +33,8 @@
  '(python-shell-interpreter-args "-i --colors=NoColor")
  '(safe-local-variable-values
    (quote
-	((company-backends quote
+	((eval setq cscope-option-kernel-mode t)
+	 (company-backends quote
 					   (company-gtags company-capf company-dabbrev-code company-etags company-keywords company-files company-dabbrev))
 	 (ede-cpp-root-project
 	  (replace-regexp-in-string "^m:/\\([^/]*\\).*$" "\\1"
