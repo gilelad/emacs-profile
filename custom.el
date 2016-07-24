@@ -63,7 +63,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#121212" :foreground "#b2b2b2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "unknown" :family "Hack"))))
+ '(default ((t (:inherit nil :stipple nil :background "#121212" :foreground "#b2b2b2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 125 :width normal :foundry "unknown" :family "VL Gothic"))))
  '(airline-emacs-outer ((t (:background "#7eaefc" :foreground "#242322"))))
  '(airline-insert-outer ((t (:background "#7eaefc" :foreground "#242322"))))
  '(airline-replace-outer ((t (:background "red" :foreground "#75d7d8"))))
@@ -73,7 +73,7 @@
  '(font-lock-string-face ((t (:foreground "cyan"))))
  '(helm-selection ((t (:background "dim gray" :foreground "#242322" :weight bold))))
  '(linum ((t (:background "#121212" :foreground "#444444" :height 0.75 :width normal))))
- '(mode-line ((t (:height 100 :family "Hack"))))
+ '(mode-line ((t (:background "#222226" :foreground "#b2b2b2" :box (:line-width 1 :color "#5d4d7a") :height 100 :family "FreeSans"))))
  '(mode-line-inactive ((t (:family "Hack"))))
  '(rainbow-delimiters-depth-1-face ((t (:inherit outline-1 :foreground "RoyalBlue1"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "HotPink1"))))
