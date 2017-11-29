@@ -28,7 +28,7 @@
 						ghc
 						ghci-completion
 						git-commit
-						golden-ratio
+						;; golden-ratio
 						haskell-mode
 						helm
 						helm-c-yasnippet
@@ -46,7 +46,6 @@
 						json-reformat
 						json-snatcher
 						magit
-						nlinum
 						open-junk-file
 						packed
 						pkg-info

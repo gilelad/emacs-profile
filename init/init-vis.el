@@ -21,15 +21,16 @@
 ;; (unless (display-graphic-p)
 ;;   (require 'evil-terminal-cursor-changer))
 ;; Must have these after loading themes
+
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
+(setq spaceline-highlight-face-func #'spaceline-highlight-face-evil-state)
+
 (setq evil-emacs-state-cursor '("#5f87ff" bar)
       evil-normal-state-cursor '("#5f5faf" box)
       evil-visual-state-cursor '("#af5f00" box)
       evil-insert-state-cursor evil-emacs-state-cursor
       evil-replace-state-cursor '("#cdcd00" hbar)
       evil-operator-state-cursor '("#cecd00" hollow))
-
-(require 'spaceline-config)
-(spaceline-spacemacs-theme)
-(setq spaceline-highlight-face-func #'spaceline-highlight-face-evil-state)
 
 (provide 'init-vis)

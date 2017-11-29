@@ -3,8 +3,8 @@
 
 (let ((file-name-handler-alist nil))     ; avoid regexp matching during startup
 
-  (setenv "HTTP_PROXY" "http://proxy71.checkpoint.com:8080")
-  (setenv "HTTPS_PROXY" "http://proxy71.checkpoint.com:8080")
+  (setenv "HTTP_PROXY" "http://proxy75.checkpoint.com:8080")
+  (setenv "HTTPS_PROXY" "http://proxy75.checkpoint.com:8080")
 
   (setq custom-file (concat user-emacs-directory "custom.el"))
   (load custom-file)

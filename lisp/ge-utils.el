@@ -142,7 +142,7 @@ default for 'i' is fill-column"
 			(indent-region (ge/start-of-line lstart) (ge/end-of-line lend)))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; IGNORE-ERRORS-WRAPPER ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+(eval-when-compile (require 'cl))
 (defun ge/ignore-error-wrapper (fn) ; from http://www.emacswiki.org/emacs/WindMove
   "Funtion return new function that ignore errors.
    The function wraps a function with `ignore-errors' macro."

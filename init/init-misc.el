@@ -1,9 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; Emacs Server ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'server)
-(when (not (string= "root" user-login-name))
-  (setq server-name user-login-name)
-  (unless (server-running-p)
-    (server-start)))
+(unless (server-running-p)
+  (server-start))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; UNDO TREE ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-undo-tree-mode)

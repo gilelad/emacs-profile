@@ -1,4 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; CEDET ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(load-file "~/src/cedet-git/cedet-devel-load.el")
 (require 'cc-mode)
 (require 'semantic)
 (require 'semantic/db)
@@ -32,7 +33,9 @@
 (require 'cc-mode)
 (add-hook 'after-init-hook #'global-company-mode)
 (setq company-idle-delay nil)
-(setq company-backends '((company-gtags company-dabbrev-code company-capf company-dabbrev) company-etags company-keywords company-files))
+(setq company-backends '((company-gtags company-dabbrev-code company-dabbrev) company-etags company-keywords company-files))
+(setq helm-company-backend company-backends)
+;; (setq company-backends '((company-gtags company-dabbrev-code company-capf company-dabbrev) company-etags company-keywords company-files))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; GDB ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'gdb-mi)
@@ -91,7 +94,7 @@
 (add-hook 'prog-mode-hook #'fci-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; LINE-NUMBERS ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'prog-mode-hook #'nlinum-mode)
+(add-hook 'prog-mode-hook #'linum-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; RAINBOW DELIMITERS ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
