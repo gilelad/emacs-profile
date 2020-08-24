@@ -4,10 +4,6 @@
 (setq-default vertical-scroll-bar nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; MODE-LINE ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'powerline)
-(require 'powerline-evil)
-
-(require 'airline-themes)
 ;; airline seperators
 (setq airline-utf-glyph-separator-left      #xe0b0
       airline-utf-glyph-separator-right     #xe0b2
@@ -17,7 +13,6 @@
       airline-utf-glyph-readonly            #xe0a2
       airline-utf-glyph-linenumber          #xe0a1)
 
-(load-theme 'airline-kolor)
 (unless (display-graphic-p)
   (require 'evil-terminal-cursor-changer))
 ;; Must have these after loading themes

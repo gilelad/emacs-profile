@@ -22,7 +22,7 @@
 	  (define-key haskell-interactive-mode-map (kbd "C-c c o") #'haskell-interactive-switch-back)))
 
 (require 'elpy)
-(when (executable-find "ipython3")
-  (elpy-use-ipython "ipython3"))
+;; (when (executable-find "ipython3")
+;;   (elpy-use-ipython "ipython3"))
 
 (provide 'init-repls)

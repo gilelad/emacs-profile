@@ -15,7 +15,7 @@
 (setq ge/package-list '(
 ;;=============== START OF REQUIRED PACKAGES ==============
 						ag
-						airline-themes
+						;; airline-themes
 						auto-compile
 						autopair
 						avy
@@ -36,15 +36,17 @@
 						ghc
 						ghci-completion
 						git-commit
-						golden-ratio
+						;; golden-ratio
 						haskell-mode
 						helm
 						helm-c-yasnippet
+						helm-company
 						helm-ag
 						helm-descbinds
 						helm-ghc
 						helm-gtags
 						helm-projectile
+						helm-xref
 						hi2
 						highlight
 						highlight-indentation
@@ -54,18 +56,19 @@
 						json-reformat
 						json-snatcher
 						magit
-						nlinum
+						;; nlinum
 						open-junk-file
 						packed
 						pkg-info
-						powerline
-						powerline-evil
+						;; powerline
+						;; powerline-evil
 						projectile
 						pyvenv
 						rainbow-delimiters
 						restart-emacs
 						smart-tabs-mode
 						smooth-scrolling
+						spaceline
 						spacemacs-theme
 						stickyfunc-enhance
 						swiper

@@ -146,7 +146,7 @@ default for 'i' is fill-column"
 (defun ge/ignore-error-wrapper (fn) ; from http://www.emacswiki.org/emacs/WindMove
   "Funtion return new function that ignore errors.
    The function wraps a function with `ignore-errors' macro."
-  (lexical-let ((fn fn))
+  (let ((fn fn))
     (lambda ()
       (interactive)
       (ignore-errors

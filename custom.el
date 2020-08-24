@@ -3,21 +3,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ad-redefinition-action (quote accept))
+ '(ad-redefinition-action 'accept)
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(c-default-style
-   (quote
-	((c-mode . "linux")
+   '((c-mode . "linux")
 	 (c++-mode . "stroustrup")
 	 (java-mode . "java")
 	 (awk-mode . "awk")
-	 (other . "gnu"))))
+	 (other . "gnu")))
  '(column-number-mode 1)
  '(custom-safe-themes
-   (quote
-	("878e22a7fe00ca4faba87b4f16bc269b8d2be5409d1c513bb7eda025da7c1cf4" "cadc97db0173a0d0bfc40473cab4da462af0ba8d60befd0a4879b582bcbc092d" "6998bd3671091820a6930b52aab30b776faea41449b4246fdce14079b3e7d125" "51277c9add74612c7624a276e1ee3c7d89b2f38b1609eed6759965f9d4254369" "b5fe3893c8808466711c1b55bb7e66b9c6aa2a86811783375a43e1beabb1af33" "532769a638787d1196bc22c885e9b85269c3fc650fdecfc45135bb618127034c" "0788bfa0a0d0471984de6d367bb2358c49b25e393344d2a531e779b6cec260c5" "8c75217782ccea7e9f3ad2dae831487a5fb636d042263d0a0e0438d551da3224" "b869a1353d39ab81b19eb79de40ff3e7bb6eaad705e61f7e4dbdcb183f08c5a6" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "70340909b0f7e75b91e66a02aa3ad61f3106071a1a4e717d5cdabd8087b47ec4" "977513781c8dd86f4f0a04dbf518df5ba496da42b71173368b305478703eea42" "a0bbe4dc3513cbd049eb95f79c467b6f19dc42979fec27a0481bb6980bd8d405" "86a731bda96ed5ed69980b4cbafe45614ec3c288da3b773e4585101e7ece40d2" "133222702a3c75d16ea9c50743f66b987a7209fb8b964f2c0938a816a83379a0" "e8586a76a96fd322ccb644ca0c3a1e4f4ca071ccfdb0f19bef90c4040d5d3841" "beeb5ac6b65fcccfe434071d4624ff0308b5968bf2f0c01b567d212bcaf66054" "aab598c4d024d544b4e8b356a95ca693afa9de000b154bd2f86eed68c9e75557" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "d9a0d14596e3d0bdb81f052fa9b99741dcd239af402d42e35f80822e05557cb2" "fbcdb6b7890d0ec1708fa21ab08eb0cc16a8b7611bb6517b722eba3891dfc9dd" "d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
- '(default-frame-alist (quote ((fullscreen . maximized))))
+   '("878e22a7fe00ca4faba87b4f16bc269b8d2be5409d1c513bb7eda025da7c1cf4" "cadc97db0173a0d0bfc40473cab4da462af0ba8d60befd0a4879b582bcbc092d" "6998bd3671091820a6930b52aab30b776faea41449b4246fdce14079b3e7d125" "51277c9add74612c7624a276e1ee3c7d89b2f38b1609eed6759965f9d4254369" "b5fe3893c8808466711c1b55bb7e66b9c6aa2a86811783375a43e1beabb1af33" "532769a638787d1196bc22c885e9b85269c3fc650fdecfc45135bb618127034c" "0788bfa0a0d0471984de6d367bb2358c49b25e393344d2a531e779b6cec260c5" "8c75217782ccea7e9f3ad2dae831487a5fb636d042263d0a0e0438d551da3224" "b869a1353d39ab81b19eb79de40ff3e7bb6eaad705e61f7e4dbdcb183f08c5a6" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "70340909b0f7e75b91e66a02aa3ad61f3106071a1a4e717d5cdabd8087b47ec4" "977513781c8dd86f4f0a04dbf518df5ba496da42b71173368b305478703eea42" "a0bbe4dc3513cbd049eb95f79c467b6f19dc42979fec27a0481bb6980bd8d405" "86a731bda96ed5ed69980b4cbafe45614ec3c288da3b773e4585101e7ece40d2" "133222702a3c75d16ea9c50743f66b987a7209fb8b964f2c0938a816a83379a0" "e8586a76a96fd322ccb644ca0c3a1e4f4ca071ccfdb0f19bef90c4040d5d3841" "beeb5ac6b65fcccfe434071d4624ff0308b5968bf2f0c01b567d212bcaf66054" "aab598c4d024d544b4e8b356a95ca693afa9de000b154bd2f86eed68c9e75557" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "d9a0d14596e3d0bdb81f052fa9b99741dcd239af402d42e35f80822e05557cb2" "fbcdb6b7890d0ec1708fa21ab08eb0cc16a8b7611bb6517b722eba3891dfc9dd" "d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))
+ '(default-frame-alist '((fullscreen . maximized)))
  '(desktop-save-mode t)
  '(ecb-options-version "2.40")
  '(echo-keystrokes 0.1)
@@ -30,18 +28,18 @@
  '(make-backup-files nil)
  '(menu-bar-mode nil)
  '(nlinum-format "%d ")
+ '(package-selected-packages
+   '(spaceline helm-xref helm-company xcscope tabbar pkg-info open-junk-file nlinum magit json-mode js2-mode hi2 helm-projectile helm-gtags helm-ghc helm-descbinds helm-ag helm-c-yasnippet helm git-commit ghci-completion function-args fill-column-indicator find-file-in-project evil-search-highlight-persist evil-commentary undo-tree evil epl elpy dtrt-indent company-ghci company-ghc company color-identifiers-mode clean-aindent-mode avy autopair auto-compile ag yasnippet ws-butler with-editor swiper stickyfunc-enhance spacemacs-theme smooth-scrolling smart-tabs-mode s restart-emacs rainbow-delimiters pyvenv projectile))
  '(python-shell-interpreter-args "-i --colors=NoColor")
  '(safe-local-variable-values
-   (quote
-	((c-font-lock-extra-types "FILE" "bool" "language" "linebuffer" "fdesc" "node" "regexp")
+   '((c-font-lock-extra-types "FILE" "bool" "language" "linebuffer" "fdesc" "node" "regexp")
 	 (eval setq byte-compile-not-obsolete-vars
-		   (quote
-			(display-buffer-function))))))
+		   '(display-buffer-function))))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tab-width 4)
- '(tabbar-cycle-scope (quote tabs))
- '(tabbar-separator (quote ("|")))
+ '(tabbar-cycle-scope 'tabs)
+ '(tabbar-separator '("|"))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
